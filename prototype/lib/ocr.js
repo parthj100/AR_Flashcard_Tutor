@@ -1,9 +1,9 @@
 // === OCR client — text extraction mode ===
-// Talks to the local FastAPI server in YOLOv8-Detection/serve.py (/ocr route).
-// Used when the user switches to "Text · OCR" mode in the scan view.
+// Talks to the local EasyOCR FastAPI server in OCR/ocr_serve.py (/ocr route).
+// The scan view's only capture path.
 //
 // Public API:
-//   Ocr.setEndpoint(url)                    // defaults to http://127.0.0.1:8765
+//   Ocr.setEndpoint(url)                    // defaults to http://127.0.0.1:8766
 //   await Ocr.health()                      // { ok, ... } | { ok: false, error }
 //   await Ocr.extractText(canvas, { conf }) // { inferenceMs, rawText, lines }
 

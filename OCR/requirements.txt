@@ -1,0 +1,11 @@
+# Lens OCR service (ocr_serve.py) and OCR benchmark
+
+# FastAPI sidecar
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.6
+
+# OCR
+easyocr>=1.7
+numpy
+pillow>=10.0
