@@ -1,8 +1,7 @@
 """
 Shared client helpers for the agent benchmarks.
 
-Every benchmark in this directory hits the same three local services:
-  - YOLO sidecar      (default http://127.0.0.1:8765)
+Every benchmark in this directory hits the same two local services:
   - OCR  sidecar      (default http://127.0.0.1:8766)
   - Ollama LLM server (default http://127.0.0.1:11434)
 
@@ -21,10 +20,9 @@ import urllib.request
 import urllib.error
 from pathlib import Path
 
-DEFAULT_YOLO   = "http://127.0.0.1:8765"
 DEFAULT_OCR    = "http://127.0.0.1:8766"
 DEFAULT_OLLAMA = "http://127.0.0.1:11434"
-DEFAULT_LLM_MODEL = "phi3:mini"
+DEFAULT_LLM_MODEL = "phi4-mini"
 
 # Mirrors prototype/lib/llm.js : FLASHCARD_SCHEMA
 FLASHCARD_SCHEMA = {
@@ -89,36 +87,6 @@ def _img_to_data_url(img: Path) -> str:
 
 
 # ---------- agent calls ----------------------------------------------------
-
-def yolo_health(endpoint: str = DEFAULT_YOLO) -> dict:
-    try:
-        return {"ok": True, **_get_json(f"{endpoint.rstrip('/')}/health")}
-    except (urllib.error.URLError, ConnectionError, OSError) as e:
-        return {"ok": False, "error": str(e)}
-
-
-def yolo_detect(img: Path, *, conf: float = 0.25, max_dets: int = 8,
-                endpoint: str = DEFAULT_YOLO, timeout: float = 60.0) -> dict:
-    body = {"image": _img_to_data_url(img), "conf": conf, "max_dets": max_dets}
-    t0 = time.perf_counter()
-    try:
-        payload = _post_json(f"{endpoint.rstrip('/')}/detect", body, timeout=timeout)
-    except Exception as e:
-        return {"ok": False, "error": str(e), "wall_ms": (time.perf_counter() - t0) * 1000}
-    wall_ms = (time.perf_counter() - t0) * 1000
-    dets = payload.get("detections", [])
-    return {
-        "ok": True,
-        "wall_ms": wall_ms,
-        "inference_ms": payload.get("inference_ms", 0.0),
-        "device": payload.get("device", "?"),
-        "image_size": payload.get("image_size", {}),
-        "detections": dets,
-        "n_detections": len(dets),
-        "top_class": dets[0].get("class_name") if dets else None,
-        "top_conf":  dets[0].get("confidence") if dets else 0.0,
-    }
-
 
 def ocr_health(endpoint: str = DEFAULT_OCR) -> dict:
     try:

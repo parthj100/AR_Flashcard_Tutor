@@ -5,7 +5,7 @@
 //
 // Prereqs for the user (see SETUP.md):
 //   1. ollama serve             (or run the Ollama app)
-//   2. ollama pull phi3:mini    (or llama3.2:3b / gemma2:2b)
+//   2. ollama pull phi4-mini
 //   3. OLLAMA_ORIGINS='*'       so browser requests aren't blocked by CORS
 //
 // Public API:
@@ -13,7 +13,7 @@
 //   await Llm.generateFlashcard({ topic, hintPrompt }) -> Flashcard
 
 const DEFAULT_HOST = 'http://localhost:11434';
-const DEFAULT_MODEL = 'phi3:mini';
+const DEFAULT_MODEL = 'phi4-mini';
 
 const SYSTEM_PROMPT = `You write concise educational flashcards for a science/humanities study app called Lens.
 For a given topic, output a single JSON object following the exact schema provided.
@@ -80,7 +80,7 @@ export async function health() {
 /**
  * Generate a flashcard for a free-text topic.
  *   topic:      the recognized topic name, e.g. "Copper sulfate"
- *   hintPrompt: optional context, e.g. the CLIP prompt that won so the LLM
+ *   hintPrompt: optional context, e.g. the OCR transcript so the LLM
  *               knows the visual context ("close-up of blue crystals...")
  *   signal:     optional AbortSignal so callers can cancel long generations
  */

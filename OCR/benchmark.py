@@ -1,9 +1,11 @@
 """
 OCR agent benchmark.
 
-Mirrors the shape of YOLOv8-Detection/compare_benchmarks.py so the
-"Standardized Benchmarking of Multi-Agent Distributed Machine Learning"
-title actually applies across the whole pipeline, not just the detector.
+Last semester's OCR speed/confidence benchmark (per-class folders of
+school-object photos). Kept as a starting point; the Fall 2026 study needs a
+new harness that scores CER/WER and critical errors against reference
+transcripts. The default --images-dir below pointed at the YOLO dataset,
+which is now archived, so pass --images-dir explicitly.
 
 Hits the running EasyOCR server (default http://127.0.0.1:8766) with every
 image under a dataset directory, records per-image latency + text-confidence
