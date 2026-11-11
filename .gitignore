@@ -15,18 +15,14 @@ __pycache__/
 venv/
 env/
 
-# YOLO / ML weights — regenerated on demand
+# ML weights — regenerated on demand
 *.pt
 *.onnx
 *.engine
 
-# Scraped third-party images (regenerable via collect_dataset.py; not
-# redistributed under the project's license)
-YOLOv8-Detection/dataset/images/raw/
-YOLOv8-Detection/dataset/images/train/
-YOLOv8-Detection/dataset/images/val/
-YOLOv8-Detection/dataset/images/test/
-YOLOv8-Detection/dataset/labels/
+# Scraped third-party images from the archived YOLO dataset (not redistributed)
+archive/spring-2026-multi-agent/YOLOv8-Detection/dataset/images/
+archive/spring-2026-multi-agent/YOLOv8-Detection/dataset/labels/
 
 # Ultralytics / Roboflow run artifacts
 runs/

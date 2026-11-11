@@ -30,7 +30,7 @@
       <div class="gen-spinner"></div>
       <div class="gen-head">Writing flashcard</div>
       <div class="gen-topic" id="gen-topic">…</div>
-      <div class="gen-sub" id="gen-sub">Phi-3 is composing the explanation and key facts.</div>
+      <div class="gen-sub" id="gen-sub">Phi-4-mini is composing the explanation and key facts.</div>
     </div>
   </div>
 
@@ -40,14 +40,12 @@
 
   <!-- ML modules — loaded as ES modules, kick off model init after app.js mounts -->
   <script type="module">
-    import * as Clip from './lib/clip.js';
     import * as Llm  from './lib/llm.js';
-    import * as Yolo from './lib/yolo.js';
     import * as Ocr  from './lib/ocr.js';
     import { Camera } from './lib/camera.js';
 
     // Expose to the global scope so app.js (non-module) can use them.
-    window.LensML = { Clip, Llm, Yolo, Ocr, Camera };
+    window.LensML = { Llm, Ocr, Camera };
     window.dispatchEvent(new CustomEvent('lens-ml-ready'));
   </script>
 </body>

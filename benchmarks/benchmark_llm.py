@@ -10,13 +10,13 @@ topics, asks for a flashcard each, and reports:
   - mean response length
 
 Goal: produce a standardized number for the LLM agent so the benchmark
-suite covers the whole pipeline, not just YOLO. Outputs match the shape of
-the YOLO and OCR benchmarks (timestamped CSV + MD + JSON in
+suite covers the LLM as well as OCR. Outputs match the shape of
+the OCR benchmark (timestamped CSV + MD + JSON in
 benchmarks/results/).
 
 Run:
   ollama serve                                      # in another terminal
-  ollama pull phi3:mini                             # one-time
+  ollama pull phi4-mini                             # one-time
   python benchmarks/benchmark_llm.py                # default settings
 
 Schema lifted verbatim from prototype/lib/llm.js so we test the same
@@ -36,7 +36,7 @@ from pathlib import Path
 from statistics import mean
 
 DEFAULT_HOST  = "http://localhost:11434"
-DEFAULT_MODEL = "phi3:mini"
+DEFAULT_MODEL = "phi4-mini"
 DEFAULT_TOPICS_FILE = "benchmarks/topics.txt"
 DEFAULT_TOPICS = [
     "Copper sulfate", "Mitochondria", "Hagia Sophia", "Maple leaf",
@@ -201,7 +201,7 @@ def generate(host: str, model: str, topic: str, timeout: float = 120.0) -> dict:
 
 def run(args):
     print("=" * 62)
-    print("  LLM agent benchmark — Ollama / Phi-3 family")
+    print("  LLM agent benchmark — Ollama / Phi-4-mini")
     print("=" * 62)
 
     try:
