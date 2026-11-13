@@ -69,7 +69,10 @@ const _persisted = loadPersistedRT();
 // Runtime state (outlives view mounts)
 const RT = window.LENS_RUNTIME = window.LENS_RUNTIME || {
   ollamaOk: false,      // true after a successful Ollama health check
-  ocrOk: false,         // true after a successful EasyOCR health check
+  ocrOk: false,         // true after a successful OCR service health check
+  ocrModel: (function () {   // which OCR model reads captures: 'easyocr' | 'pix2text'
+    try { return localStorage.getItem('lens.ocrModel') || 'easyocr'; } catch { return 'easyocr'; }
+  })(),
   generatedCards: (_persisted && _persisted.generatedCards) || {},
   scan: null,           // active scan controller (camera + loop)
   captures:       (_persisted && _persisted.captures)       || [],
@@ -712,7 +715,7 @@ function renderDecks(root) {
   }));
 }
 
-// ---------- Scan (W2) — OCR pipeline: EasyOCR reads the photo, LLM writes ----------
+// ---------- Scan (W2) — OCR pipeline: EasyOCR or Pix2Text reads the photo, LLM writes ----------
 // YOLO (detection) and CLIP (recognition) were removed in Fall 2026 when the
 // research question narrowed to reading math problems from photos. Their code
 // lives in archive/spring-2026-multi-agent/.
@@ -733,6 +736,9 @@ function renderScan(root) {
           <div class="divider"></div>
           <div class="scoping">Scanning to</div>
           <div class="deck-pill-dark"><span class="dot"></span>Chem 101 ${ico('chev-down')}</div>
+          <div class="mode-toggle" role="tablist" aria-label="OCR model">
+            ${OCR_MODELS.map(m => `<button class="mode-opt ${RT.ocrModel===m.id?'is-active':''}" data-model="${m.id}" role="tab" aria-selected="${RT.ocrModel===m.id}">${m.label}</button>`).join('')}
+          </div>
           <div class="right-tools">
             <span class="tool-pill" id="cam-status"><span class="live" id="cam-dot"></span><span id="cam-text">Starting…</span></span>
             <span class="tool-pill" id="ocr-status"><span class="live" id="ocr-dot" style="background:#8B8B86;box-shadow:none"></span><span id="ocr-text">OCR</span></span>
@@ -799,7 +805,7 @@ function renderScan(root) {
 
         <div class="tip-card">
           <div class="head">Pipeline</div>
-          <div class="body">EasyOCR reads the captured photo. The local LLM (Ollama) then writes the card from the transcript.</div>
+          <div class="body">The selected OCR model (EasyOCR, or Pix2Text for math) reads the captured photo. The local LLM (Ollama) then writes the card from the transcript.</div>
           <div class="foot" id="pipeline-foot">Checking services…</div>
         </div>
       </aside>
@@ -853,12 +859,38 @@ async function startScanController(root) {
   }
 
   // 2. Probe the OCR service and Ollama in parallel (non-blocking)
-  setPill('ocr', 'OCR · checking…', '#E5A23A');
-  Ocr.health().then(h => {
+  // OCR status reflects the selected model: missing, still loading, or ready.
+  let ocrModels = null;
+  let stopped = false;   // set when the user leaves the scan view
+  const refreshOcrPill = () => {
+    const label = ocrModelLabel(RT.ocrModel);
+    if (!ocrModels) { setPill('ocr', 'OCR offline', '#E97352'); return; }
+    const m = ocrModels[RT.ocrModel];
+    if (!m)             setPill('ocr', `${label} · not installed`, '#E97352');
+    else if (!m.loaded) setPill('ocr', `${label} · loading…`, '#E5A23A');
+    else                setPill('ocr', `${label} · ready`, '#2ecc71');
+  };
+  const checkOcr = async () => {
+    const h = await Ocr.health();
     RT.ocrOk = !!h.ok;
-    setPill('ocr', h.ok ? 'OCR · ready' : 'OCR offline', h.ok ? '#2ecc71' : '#E97352');
-  });
+    ocrModels = h.ok ? h.models : null;
+    refreshOcrPill();
+    // A model that is still loading flips to ready on its own; poll until then.
+    if (!stopped && ocrModels && Object.values(ocrModels).some(m => !m.loaded)) setTimeout(checkOcr, 3000);
+  };
+  setPill('ocr', 'OCR · checking…', '#E5A23A');
+  checkOcr();
   checkOllama(llmText, llmDot, pipeFoot);
+
+  root.querySelectorAll('.mode-opt[data-model]').forEach(b => b.addEventListener('click', () => {
+    setOcrModel(b.dataset.model);
+    root.querySelectorAll('.mode-opt[data-model]').forEach(x => {
+      const on = x.dataset.model === RT.ocrModel;
+      x.classList.toggle('is-active', on);
+      x.setAttribute('aria-selected', on);
+    });
+    refreshOcrPill();
+  }));
 
   // 3. Capture: one frame -> EasyOCR -> show lines -> LLM writes the card
   const capture = async () => {
@@ -869,13 +901,17 @@ async function startScanController(root) {
       scanHint.textContent = 'OCR server not reachable — start python OCR/ocr_serve.py';
       return;
     }
+    if (ocrModels && !ocrModels[RT.ocrModel]) {
+      scanHint.textContent = `${ocrModelLabel(RT.ocrModel)} is not installed on the OCR server — pip install -r OCR/requirements.txt`;
+      return;
+    }
     const full = cam.captureFrame(720);
     if (!full) { scanHint.textContent = 'Camera frame unavailable'; return; }
 
-    scanHint.textContent = 'Reading text…';
+    scanHint.textContent = `Reading text with ${ocrModelLabel(RT.ocrModel)}…`;
     let result;
     try {
-      result = await Ocr.extractText(full, { conf: 0.5 });
+      result = await Ocr.extractText(full, { conf: 0.5, model: RT.ocrModel });
     } catch (err) {
       scanHint.textContent = `OCR error: ${(err.message || err).slice(0, 120)}`;
       return;
@@ -926,6 +962,8 @@ async function startScanController(root) {
         oneline: flashcard.oneline,
         facts: flashcard.facts,
         ocrText: result.rawText,   // raw OCR output, kept for later scoring
+        ocrModel: result.model,
+        ocrModelVersion: result.modelVersion,
         generated: true,
       };
       recordCapture({ id, meta, isGenerated: true });
@@ -943,14 +981,15 @@ async function startScanController(root) {
     const meanConf = lines.length ? lines.reduce((a, l) => a + (l.confidence || 0), 0) / lines.length : 0;
     const pct = Math.round(meanConf * 100);
     panelName.textContent = 'Text detected';
-    panelSub.innerHTML = `<span>${lines.length} line${lines.length === 1 ? '' : 's'}</span><span>·</span><span style="font-family:var(--font-mono)">${result.inferenceMs.toFixed(0)} ms</span>`;
+    panelSub.innerHTML = `<span class="strong">${escapeHtml(ocrModelLabel(result.model))}</span><span>·</span><span>${lines.length} line${lines.length === 1 ? '' : 's'}</span><span>·</span><span style="font-family:var(--font-mono)">${result.inferenceMs.toFixed(0)} ms</span>`;
     confPct.textContent = lines.length ? pct + '%' : '—';
     confFill.style.width = pct + '%';
     lineList.innerHTML = lines.map((l, i) => `
       <div class="alt-row">
         <div class="alt-mark">${String(i + 1).padStart(2, '0')}</div>
         <div class="alt-info">
-          <div class="alt-name">${escapeHtml(l.text)}</div>
+          <div class="alt-name" ${l.kind && l.kind !== 'text' ? 'style="font-family:var(--font-mono)"' : ''}>${escapeHtml(l.text)}</div>
+          ${l.kind && l.kind !== 'text' ? `<div class="alt-sub">${l.kind === 'math' ? 'Math (LaTeX)' : 'Text + math (LaTeX)'}</div>` : ''}
         </div>
         <div class="alt-pct">${Math.round((l.confidence || 0) * 100)}%</div>
       </div>`).join('');
@@ -960,9 +999,22 @@ async function startScanController(root) {
 
   // 4. Register a scan controller so we can tear down on navigate-away
   RT.scan = {
-    stop: () => cam.stop(),
+    stop: () => { stopped = true; cam.stop(); },
     capture,
   };
+}
+
+// OCR models the scan view can switch between (ids match OCR/engines.py).
+const OCR_MODELS = [
+  { id: 'easyocr',  label: 'EasyOCR' },
+  { id: 'pix2text', label: 'Pix2Text' },
+];
+function ocrModelLabel(id) {
+  return (OCR_MODELS.find(m => m.id === id) || {}).label || id || 'OCR';
+}
+function setOcrModel(id) {
+  RT.ocrModel = OCR_MODELS.some(m => m.id === id) ? id : 'easyocr';
+  try { localStorage.setItem('lens.ocrModel', RT.ocrModel); } catch {}
 }
 
 function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','\'':'&#39;'}[c])); }

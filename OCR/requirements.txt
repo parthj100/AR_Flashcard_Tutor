@@ -1,11 +1,20 @@
-# Lens OCR service (ocr_serve.py) and OCR benchmark
+# Lens OCR service (ocr_serve.py), engines and OCR benchmark
+# Use Python 3.12: onnxruntime (needed by Pix2Text) has no build for 3.15 yet.
 
 # FastAPI sidecar
 fastapi>=0.110
 uvicorn[standard]>=0.27
 pydantic>=2.6
 
-# OCR
-easyocr>=1.7
+# Images
 numpy
 pillow>=10.0
+
+# OCR model 1: EasyOCR
+easyocr==1.7.2
+
+# OCR model 2: Pix2Text (text + math formulas)
+pix2text==1.1.7
+# cnstd (a Pix2Text dependency) imports resolve_model_key, which rapidocr
+# 3.10 renamed. Remove this pin once cnstd supports rapidocr 3.10+.
+rapidocr==3.9.2

@@ -19,7 +19,7 @@ removed; that code, its benchmarks and its results are kept in
 | Path | What it is |
 |---|---|
 | [`prototype/`](prototype/) | Vanilla-JS web app (Lens UI): dashboard, decks, scan and flashcard views. The scan view captures a frame, sends it to the OCR service and shows the lines it read. See [`prototype/SETUP.md`](prototype/SETUP.md). |
-| [`OCR/`](OCR/) | EasyOCR FastAPI service ([`ocr_serve.py`](OCR/ocr_serve.py), port 8766), last semester's OCR speed benchmark ([`benchmark.py`](OCR/benchmark.py)), and five test images. |
+| [`OCR/`](OCR/) | OCR service ([`ocr_serve.py`](OCR/ocr_serve.py), port 8766) serving both OCR models, the shared model wrappers ([`engines.py`](OCR/engines.py)), last semester's OCR speed benchmark ([`benchmark.py`](OCR/benchmark.py)), and five test images. |
 | [`benchmarks/`](benchmarks/) | Shared service clients ([`agents.py`](benchmarks/agents.py)) and the LLM benchmark ([`benchmark_llm.py`](benchmarks/benchmark_llm.py)). |
 | [`archive/spring-2026-multi-agent/`](archive/spring-2026-multi-agent/) | YOLO and CLIP code, multi-agent benchmarks, results, figures and methodology docs from Spring 2026. |
 | [`Research Updates/`](Research%20Updates/) | Progress-update PDFs. |
@@ -36,22 +36,23 @@ removed; that code, its benchmarks and its results are kept in
  on a screen line order      model, same images  numbers      fixes errors   model version
 ```
 
-Today the app runs **Photo → EasyOCR → lines shown in the panel → Ollama writes a card**. Preprocessing,
-the second OCR model, flagging, the editable transcript and the saved record are being built this semester.
+Today the app runs **Photo → EasyOCR or Pix2Text (switch in the scan view) → lines shown in the panel → Ollama
+writes a card**. Preprocessing, flagging, the editable transcript and the saved record are being built this semester.
 
 | Layer | Implementation |
 |---|---|
-| OCR | **EasyOCR** (English), FastAPI service on port 8766 |
+| OCR | **EasyOCR 1.7.2** and **Pix2Text 1.1.7** (text + math as LaTeX), both English-only on CPU, one FastAPI service on port 8766. Settings for each are in [`OCR/engines.py`](OCR/engines.py). |
 | LLM | **Phi-4-mini** via Ollama (`phi4-mini`), JSON output constrained to a schema ([`prototype/lib/llm.js`](prototype/lib/llm.js)) |
 | Frontend | Vanilla HTML / CSS / JS, hash-routed, no build step |
-| Tooling | Python 3.10+ |
+| Tooling | Python 3.12 (tested). Python 3.15 does not work: Pix2Text needs `onnxruntime`, which has no build for it yet. |
 
 ---
 
 ## Getting started
 
 ```bash
-python3 -m venv .venv
+brew install python@3.12            # if you don't have it
+python3.12 -m venv .venv
 .venv/bin/pip install -r OCR/requirements.txt
 ollama pull phi4-mini
 ```
