@@ -155,7 +155,7 @@ class Pix2TextEngine(Engine):
         lines = []
         for _, bs in sorted(by_line.items()):
             bs.sort(key=lambda b: float(np.min(np.asarray(b["position"])[:, 0])))
-            parts, kinds = [], set()
+            parts, kinds, segments = [], set(), []
             for b in bs:
                 t = b["text"].strip()
                 if b["type"] == "embedding":
@@ -164,12 +164,16 @@ class Pix2TextEngine(Engine):
                     parts.append(f"$${t}$$"); kinds.add("math")
                 else:
                     parts.append(t); kinds.add("text")
+                segments.append({"type": "math" if b["type"] in ("embedding", "isolated") else "text",
+                                 "text": t})
             points = np.concatenate([np.asarray(b["position"]) for b in bs])
             lines.append({
                 "text": " ".join(parts),
                 "confidence": round(min(float(b.get("score", 0.0)) for b in bs), 4),
                 "bbox": _bbox(points),
                 "kind": kinds.pop() if len(kinds) == 1 else "mixed",
+                # Unwrapped pieces, so scoring can tell a formula's $..$ from a price's $.
+                "segments": segments,
             })
         return lines
 

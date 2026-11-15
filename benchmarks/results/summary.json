@@ -1,0 +1,826 @@
+{
+  "source": "benchmarks/ocr_eval/score.py",
+  "models": [
+    "easyocr",
+    "pix2text"
+  ],
+  "n_real_photos": 0,
+  "n_problems": 30,
+  "pool_label": "rendered images",
+  "error_free_subtitle": "Higher is better. 30 problems, 60 images; a critical error changes a number or math symbol.",
+  "error_free": {
+    "Rendered (sharp)": {
+      "easyocr": [
+        13,
+        30
+      ],
+      "pix2text": [
+        25,
+        30
+      ]
+    },
+    "Rendered (blurred)": {
+      "easyocr": [
+        6,
+        30
+      ],
+      "pix2text": [
+        21,
+        30
+      ]
+    },
+    "Math problems\n(all images)": {
+      "easyocr": [
+        0,
+        20
+      ],
+      "pix2text": [
+        13,
+        20
+      ]
+    },
+    "Word problems\n(all images)": {
+      "easyocr": [
+        19,
+        40
+      ],
+      "pix2text": [
+        33,
+        40
+      ]
+    }
+  },
+  "cer": {
+    "Rendered (sharp)": {
+      "easyocr": 0.09663792423177463,
+      "pix2text": 0.02433880466821873
+    },
+    "Rendered (blurred)": {
+      "easyocr": 0.14651240171496932,
+      "pix2text": 0.028212520245642223
+    }
+  },
+  "wer": {
+    "Rendered (sharp)": {
+      "easyocr": 0.2236638945683759,
+      "pix2text": 0.22633362886543462
+    },
+    "Rendered (blurred)": {
+      "easyocr": 0.33689242870205405,
+      "pix2text": 0.239574558942206
+    }
+  },
+  "time_s": {
+    "Rendered (sharp)": {
+      "easyocr": 6.40864,
+      "pix2text": 0.6754366666666667
+    },
+    "Rendered (blurred)": {
+      "easyocr": 6.098283333333333,
+      "pix2text": 0.6436766666666667
+    }
+  },
+  "hidden": {
+    "cer_threshold": 0.05,
+    "low_cer": 64,
+    "with_critical": 14
+  },
+  "categories": {
+    "easyocr": {
+      "number": 104,
+      "decimal": 2,
+      "operator": 54,
+      "frac/pow/root": 69,
+      "unit/currency": 19
+    },
+    "pix2text": {
+      "number": 10,
+      "decimal": 0,
+      "operator": 1,
+      "frac/pow/root": 5,
+      "unit/currency": 11
+    }
+  },
+  "points": [
+    {
+      "model": "easyocr",
+      "cer": 0.08866995073891626,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.0022222222222222222,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.06716417910447761,
+      "critical": 4,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.007722007722007722,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.06521739130434782,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.00909090909090909,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.007042253521126761,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.009708737864077669,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.08461538461538462,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.1179245283018868,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.04888888888888889,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.045627376425855515,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.09395973154362416,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.16666666666666666,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.06956521739130435,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.061971830985915494,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.005376344086021506,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.033419023136246784,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.004761904761904762,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.04794520547945205,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.13131313131313133,
+      "critical": 10,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.1836734693877551,
+      "critical": 13,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.08661417322834646,
+      "critical": 2,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.34615384615384615,
+      "critical": 10,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.3142857142857143,
+      "critical": 12,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.23255813953488372,
+      "critical": 26,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.10989010989010989,
+      "critical": 5,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.12941176470588237,
+      "critical": 5,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.2463768115942029,
+      "critical": 5,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.08130081300813008,
+      "critical": 5,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.15763546798029557,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.11333333333333333,
+      "critical": 9,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.12686567164179105,
+      "critical": 7,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.05405405405405406,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.11739130434782609,
+      "critical": 3,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.00909090909090909,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.11971830985915492,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.024271844660194174,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.27307692307692305,
+      "critical": 2,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.009433962264150943,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.10222222222222223,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.055133079847908745,
+      "critical": 2,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.11409395973154363,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.16666666666666666,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.13478260869565217,
+      "critical": 4,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.1323943661971831,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.11827956989247312,
+      "critical": 3,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.15424164524421594,
+      "critical": 5,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.014285714285714285,
+      "critical": 3,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.11986301369863013,
+      "critical": 3,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.15656565656565657,
+      "critical": 8,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.22448979591836735,
+      "critical": 12,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.09448818897637795,
+      "critical": 2,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.3974358974358974,
+      "critical": 11,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.34285714285714286,
+      "critical": 13,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.45348837209302323,
+      "critical": 30,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.0989010989010989,
+      "critical": 6,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.15294117647058825,
+      "critical": 3,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.2028985507246377,
+      "critical": 7,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "easyocr",
+      "cer": 0.15447154471544716,
+      "critical": 8,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.011111111111111112,
+      "critical": 5,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.003861003861003861,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.011538461538461539,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0047169811320754715,
+      "critical": 1,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.10204081632653061,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.007874015748031496,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.22435897435897437,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.04285714285714286,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.11627906976744186,
+      "critical": 3,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.02197802197802198,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.09411764705882353,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.08943089430894309,
+      "critical": 0,
+      "photo_type": "rendered"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.011111111111111112,
+      "critical": 5,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0024875621890547263,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0038461538461538464,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.0,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.010101010101010102,
+      "critical": 2,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.10204081632653061,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.007874015748031496,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.22435897435897437,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.08571428571428572,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.11627906976744186,
+      "critical": 2,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.03296703296703297,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.12941176470588237,
+      "critical": 1,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.014492753623188406,
+      "critical": 0,
+      "photo_type": "rendered_blur"
+    },
+    {
+      "model": "pix2text",
+      "cer": 0.10569105691056911,
+      "critical": 2,
+      "photo_type": "rendered_blur"
+    }
+  ]
+}
