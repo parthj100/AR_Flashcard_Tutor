@@ -95,9 +95,12 @@ def ocr_health(endpoint: str = DEFAULT_OCR) -> dict:
         return {"ok": False, "error": str(e)}
 
 
-def ocr_extract(img: Path, *, conf: float = 0.5,
+def ocr_extract(img: Path, *, conf: float = 0.5, model: str | None = None,
                 endpoint: str = DEFAULT_OCR, timeout: float = 120.0) -> dict:
+    """model: "easyocr" (server default) or "pix2text"."""
     body = {"image": _img_to_data_url(img), "conf": conf}
+    if model:
+        body["model"] = model
     t0 = time.perf_counter()
     try:
         payload = _post_json(f"{endpoint.rstrip('/')}/ocr", body, timeout=timeout)
@@ -108,6 +111,8 @@ def ocr_extract(img: Path, *, conf: float = 0.5,
     confs = [ln["confidence"] for ln in lines]
     return {
         "ok": True,
+        "model": payload.get("model"),
+        "model_version": payload.get("model_version"),
         "wall_ms": wall_ms,
         "inference_ms": payload.get("inference_ms", 0.0),
         "image_size": payload.get("image_size", {}),

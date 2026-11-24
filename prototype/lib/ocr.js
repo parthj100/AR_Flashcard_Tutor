@@ -4,8 +4,10 @@
 //
 // Public API:
 //   Ocr.setEndpoint(url)                    // defaults to http://127.0.0.1:8766
-//   await Ocr.health()                      // { ok, ... } | { ok: false, error }
-//   await Ocr.extractText(canvas, { conf }) // { inferenceMs, rawText, lines }
+//   await Ocr.health()                      // { ok, models, defaultModel } | { ok: false, error }
+//   await Ocr.extractText(canvas, { conf, model }) // { model, inferenceMs, rawText, lines }
+//
+// model: 'easyocr' or 'pix2text' (see OCR/engines.py). Omit for the server default.
 
 const state = {
     endpoint: 'http://127.0.0.1:8766',
@@ -24,7 +26,12 @@ const state = {
       const r = await fetch(`${state.endpoint}/health`, { method: 'GET' });
       if (!r.ok) return { ok: false, error: `HTTP ${r.status}` };
       const j = await r.json();
-      return { ok: true, device: j.device, ocr: j.ocr };
+      return {
+        ok: true,
+        ocr: j.ocr,
+        defaultModel: j.default_model || 'easyocr',
+        models: j.models || {},   // { easyocr: {name, version, settings, loaded}, ... }
+      };
     } catch (err) {
       return { ok: false, error: err.message || String(err) };
     }
@@ -35,22 +42,28 @@ const state = {
    *
    * Returns:
    *   {
+   *     model: string,          // which OCR model read it, e.g. 'pix2text'
+   *     modelVersion: string,
+   *     modelSettings: object,
    *     inferenceMs: number,
    *     imageSize: { w, h },
    *     rawText: string,        // all lines joined — send directly to Ollama
    *     lines: [{
    *       text: string,
    *       confidence: number,
-   *       bbox: { x1, y1, x2, y2 }
+   *       bbox: { x1, y1, x2, y2 },
+   *       kind: 'text' | 'math' | 'mixed'   // math is LaTeX wrapped in $...$
    *     }]
    *   }
    */
-  export async function extractText(canvas, { conf = 0.5 } = {}) {
+  export async function extractText(canvas, { conf = 0.5, model } = {}) {
     const dataUrl = canvas.toDataURL('image/jpeg', 0.92);
+    const body = { image: dataUrl, conf };
+    if (model) body.model = model;
     const r = await fetch(`${state.endpoint}/ocr`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ image: dataUrl, conf }),
+      body: JSON.stringify(body),
     });
     if (!r.ok) {
       const text = await r.text().catch(() => '');
@@ -58,6 +71,9 @@ const state = {
     }
     const j = await r.json();
     return {
+      model:         j.model,
+      modelVersion:  j.model_version,
+      modelSettings: j.model_settings,
       inferenceMs: j.inference_ms,
       imageSize:   j.image_size,
       rawText:     j.raw_text,
