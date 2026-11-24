@@ -68,16 +68,6 @@ python3 -m http.server 5500 --directory prototype   # web app  :5500
 Open <http://localhost:5500> and click **New scan**. Details and troubleshooting are in
 [`prototype/SETUP.md`](prototype/SETUP.md).
 
----
-
-## Team
-
-| Name | Role |
-|---|---|
-| **Alexis Juarez Gomez** | *(fill in Fall 2026 role)* |
-| **Parthkumar Joshi** | *(fill in Fall 2026 role)* |
-
----
 
 ## References
 
