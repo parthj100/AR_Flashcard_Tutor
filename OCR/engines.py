@@ -122,6 +122,9 @@ class Pix2TextEngine(Engine):
 
     Runs on CPU: Pix2Text's formula detector crashes on Apple's MPS backend
     (torchvision NMS shader), and CPU keeps it comparable with EasyOCR.
+    One exception: onnxruntime gives the text-region detector (cnstd
+    en_PP-OCRv3_det) Apple's CoreML on Macs. Forcing it onto the CPU changed
+    speed by about 1% (0.624 vs 0.632 s/image on 60 images, M2), so we leave it.
     English only: with the default ('en', 'ch_sim') it misreads noise as
     Chinese and its English confidences drop to ~0.5.
     Spell checker off: we score raw OCR, separately from any cleanup.

@@ -1,0 +1,85 @@
+{
+  "method": "powermetrics Combined Power (CPU+GPU+ANE), energy above idle baseline",
+  "fake_sampler": false,
+  "images": 60,
+  "types": [
+    "rendered",
+    "rendered_blur"
+  ],
+  "repeats": 3,
+  "idle_seconds": 20.0,
+  "summary": {
+    "easyocr": {
+      "joules_per_image_median": 30.6454,
+      "joules_per_image_min": 27.7488,
+      "joules_per_image_max": 31.2188,
+      "seconds_per_image_median": 6.311
+    },
+    "pix2text": {
+      "joules_per_image_median": 11.839,
+      "joules_per_image_min": 11.496,
+      "joules_per_image_max": 11.994,
+      "seconds_per_image_median": 0.759
+    }
+  },
+  "runs": {
+    "easyocr": [
+      {
+        "round": 1,
+        "idle_w": 1.367,
+        "active_w": 5.622,
+        "seconds": 392.52,
+        "sampled_seconds": 391.29,
+        "joules_per_image": 27.7488,
+        "total_joules_per_image": 36.662
+      },
+      {
+        "round": 2,
+        "idle_w": 0.387,
+        "active_w": 5.257,
+        "seconds": 378.64,
+        "sampled_seconds": 377.52,
+        "joules_per_image": 30.6454,
+        "total_joules_per_image": 33.0779
+      },
+      {
+        "round": 3,
+        "idle_w": 0.383,
+        "active_w": 5.353,
+        "seconds": 377.99,
+        "sampled_seconds": 376.87,
+        "joules_per_image": 31.2188,
+        "total_joules_per_image": 33.6228
+      }
+    ],
+    "pix2text": [
+      {
+        "round": 1,
+        "idle_w": 2.06,
+        "active_w": 18.288,
+        "seconds": 45.54,
+        "sampled_seconds": 44.34,
+        "joules_per_image": 11.994,
+        "total_joules_per_image": 13.5161
+      },
+      {
+        "round": 2,
+        "idle_w": 1.556,
+        "active_w": 17.345,
+        "seconds": 46.15,
+        "sampled_seconds": 44.99,
+        "joules_per_image": 11.839,
+        "total_joules_per_image": 13.006
+      },
+      {
+        "round": 3,
+        "idle_w": 0.355,
+        "active_w": 17.97,
+        "seconds": 40.2,
+        "sampled_seconds": 39.16,
+        "joules_per_image": 11.496,
+        "total_joules_per_image": 11.7276
+      }
+    ]
+  }
+}
