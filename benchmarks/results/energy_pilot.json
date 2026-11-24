@@ -1,0 +1,92 @@
+{
+  "method": "powermetrics Combined Power (CPU+GPU+ANE), energy above idle baseline",
+  "fake_sampler": false,
+  "images": 73,
+  "types": [
+    "handwritten",
+    "printed",
+    "screen"
+  ],
+  "image_set": "pilot",
+  "images_per_type": {
+    "handwritten": 13,
+    "printed": 30,
+    "screen": 30
+  },
+  "repeats": 3,
+  "idle_seconds": 20.0,
+  "summary": {
+    "easyocr": {
+      "joules_per_image_median": 70.1009,
+      "joules_per_image_min": 64.9854,
+      "joules_per_image_max": 71.1296,
+      "seconds_per_image_median": 13.946
+    },
+    "pix2text": {
+      "joules_per_image_median": 13.5328,
+      "joules_per_image_min": 13.0127,
+      "joules_per_image_max": 15.2401,
+      "seconds_per_image_median": 0.971
+    }
+  },
+  "runs": {
+    "easyocr": [
+      {
+        "round": 1,
+        "idle_w": 0.702,
+        "active_w": 5.369,
+        "seconds": 1018.06,
+        "sampled_seconds": 1016.42,
+        "joules_per_image": 64.9854,
+        "total_joules_per_image": 74.7579
+      },
+      {
+        "round": 2,
+        "idle_w": 0.431,
+        "active_w": 5.554,
+        "seconds": 1015.14,
+        "sampled_seconds": 1013.5,
+        "joules_per_image": 71.1296,
+        "total_joules_per_image": 77.1113
+      },
+      {
+        "round": 3,
+        "idle_w": 0.401,
+        "active_w": 5.291,
+        "seconds": 1047.93,
+        "sampled_seconds": 1046.37,
+        "joules_per_image": 70.1009,
+        "total_joules_per_image": 75.8432
+      }
+    ],
+    "pix2text": [
+      {
+        "round": 1,
+        "idle_w": 0.361,
+        "active_w": 16.201,
+        "seconds": 71.16,
+        "sampled_seconds": 70.24,
+        "joules_per_image": 15.2401,
+        "total_joules_per_image": 15.5872
+      },
+      {
+        "round": 2,
+        "idle_w": 1.816,
+        "active_w": 15.447,
+        "seconds": 70.88,
+        "sampled_seconds": 69.69,
+        "joules_per_image": 13.0127,
+        "total_joules_per_image": 14.7469
+      },
+      {
+        "round": 3,
+        "idle_w": 0.529,
+        "active_w": 15.555,
+        "seconds": 66.73,
+        "sampled_seconds": 65.74,
+        "joules_per_image": 13.5328,
+        "total_joules_per_image": 14.0087
+      }
+    ]
+  }
+}

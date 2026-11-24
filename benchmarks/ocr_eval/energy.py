@@ -1,13 +1,14 @@
 """
 Energy per image for each OCR model, measured with macOS powermetrics (Apple silicon).
 
-    .venv/bin/python benchmarks/ocr_eval/energy.py                  # 3 rounds, all images
-    .venv/bin/python benchmarks/ocr_eval/energy.py --types rendered --repeats 5
+    # the pilot photos (data/pilot/manifest.csv, from the critical-error-benchmark branch)
+    .venv/bin/python benchmarks/ocr_eval/energy.py --manifest data/pilot/manifest.csv \
+        --types printed screen handwritten --out benchmarks/results/energy_pilot.json
 
 Asks for your password once (powermetrics needs sudo) and keeps sudo alive
 for the whole run. Before starting: plug in the charger, close other apps,
 turn off Wi-Fi sync / backups, and don't touch the Mac while it runs
-(about 25 min for 60 images x 2 models x 3 rounds).
+(about 1 hour for 73 phone photos x 2 models x 3 rounds).
 
 Method, per model, per round:
   1. load + warm up the model (untimed, not measured)
@@ -22,12 +23,13 @@ activity hit both equally; we report the median and range across rounds.
 Power is powermetrics' "Combined Power (CPU + GPU + ANE)": the chip, not
 the screen, RAM or the rest of the Mac.
 
-Writes benchmarks/results/energy.json (plots.py draws energy.png from it).
+Writes the --out JSON (plots.py draws a graph from every energy*.json).
 """
 
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import os
 import re
@@ -44,8 +46,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[1]
 sys.path.insert(0, str(ROOT / "OCR"))
 
-from dataset import find_photos, load_problems     # noqa: E402
-from run_ocr import load_image                     # noqa: E402
+from PIL import Image, ImageOps                    # noqa: E402
 
 # For testing without sudo: LENS_POWERMETRICS="python fake_powermetrics.py"
 FAKE = os.environ.get("LENS_POWERMETRICS")
@@ -70,6 +71,22 @@ def energy_above_idle(samples, idle_w: float):
     secs = sum(dt for dt, _ in samples)
     total = sum(dt * w for dt, w in samples)
     return total - idle_w * secs, secs, total
+
+
+def load_image(path: Path) -> Image.Image:
+    """Upright RGB image (phone photos carry their rotation in EXIF)."""
+    return ImageOps.exif_transpose(Image.open(path)).convert("RGB")
+
+
+def manifest_photos(manifest: Path):
+    """[(path, condition), ...] for rows of a pilot manifest.csv whose photo exists."""
+    out = []
+    with open(manifest, newline="", encoding="utf-8") as f:
+        for row in csv.DictReader(f):
+            path = manifest.parent / row["path"] if row.get("path") else None
+            if path and path.is_file():
+                out.append((path, row["condition"]))
+    return out
 
 
 class PowerSampler:
@@ -115,22 +132,23 @@ def keep_sudo_alive(stop: threading.Event):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--dataset", type=Path, default=ROOT / "dataset")
+    ap.add_argument("--manifest", type=Path, required=True,
+                    help="manifest.csv listing the images (path and condition columns)")
     ap.add_argument("--models", nargs="+", default=["easyocr", "pix2text"])
-    ap.add_argument("--types", nargs="+", help="photo types to use (default: every type present)")
+    ap.add_argument("--types", nargs="+", help="conditions to use, e.g. printed screen handwritten (default: all)")
     ap.add_argument("--limit", type=int, help="use only the first N images (quick check)")
     ap.add_argument("--repeats", type=int, default=3)
     ap.add_argument("--idle", type=float, default=20.0, help="seconds of idle baseline per measurement")
     ap.add_argument("--out", type=Path, default=ROOT / "benchmarks" / "results" / "energy.json")
     a = ap.parse_args()
 
-    photos = find_photos(a.dataset, load_problems(a.dataset))
+    photos = manifest_photos(a.manifest.resolve())
     if a.types:
-        photos = [p for p in photos if p.photo_type in a.types]
+        photos = [p for p in photos if p[1] in a.types]
     photos = photos[:a.limit] if a.limit else photos
     if not photos:
         sys.exit("no images found")
-    types = sorted({p.photo_type for p in photos})
+    types = sorted({t for _, t in photos})
 
     stop = threading.Event()
     if not FAKE:
@@ -139,7 +157,7 @@ def main():
         threading.Thread(target=keep_sudo_alive, args=(stop,), daemon=True).start()
 
     from engines import get_engine
-    images = [load_image(p.path) for p in photos]          # decode up front: not part of OCR energy
+    images = [load_image(path) for path, _ in photos]          # decode up front: not part of OCR energy
     engines = {}
     for m in a.models:
         engines[m] = get_engine(m)
@@ -183,6 +201,8 @@ def main():
     a.out.write_text(json.dumps({
         "method": "powermetrics Combined Power (CPU+GPU+ANE), energy above idle baseline",
         "fake_sampler": bool(FAKE), "images": len(images), "types": types,
+        "image_set": a.manifest.parent.name,
+        "images_per_type": {t: sum(1 for _, x in photos if x == t) for t in types},
         "repeats": a.repeats, "idle_seconds": a.idle, "summary": summary, "runs": runs}, indent=2))
     print("wrote", a.out)
 

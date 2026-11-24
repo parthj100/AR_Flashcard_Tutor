@@ -28,5 +28,3 @@ archive/spring-2026-multi-agent/YOLOv8-Detection/dataset/labels/
 runs/
 wandb/
 
-# OCR benchmark: public datasets are re-downloaded by build_problems.py
-dataset/sources/

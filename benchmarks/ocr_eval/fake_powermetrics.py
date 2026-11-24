@@ -2,7 +2,8 @@
 Stand-in for `powermetrics`, for testing energy.py without sudo:
 
     LENS_POWERMETRICS=".venv/bin/python benchmarks/ocr_eval/fake_powermetrics.py" \\
-        .venv/bin/python benchmarks/ocr_eval/energy.py --limit 2 --repeats 1 --idle 2
+        .venv/bin/python benchmarks/ocr_eval/energy.py --manifest data/pilot/manifest.csv \\
+            --limit 2 --repeats 1 --idle 2 --out /tmp/energy_fake.json
 
 Writes powermetrics-format samples at a constant power (FAKE_MW, default 2000)
 to the -o file every -i milliseconds until interrupted. With constant power,

@@ -20,7 +20,7 @@ removed; that code, its benchmarks and its results are kept in
 |---|---|
 | [`prototype/`](prototype/) | Vanilla-JS web app (Lens UI): dashboard, decks, scan and flashcard views. The scan view captures a frame, sends it to the OCR service and shows the lines it read. See [`prototype/SETUP.md`](prototype/SETUP.md). |
 | [`OCR/`](OCR/) | OCR service ([`ocr_serve.py`](OCR/ocr_serve.py), port 8766) serving both OCR models, the shared model wrappers ([`engines.py`](OCR/engines.py)), last semester's OCR speed benchmark ([`benchmark.py`](OCR/benchmark.py)), and five test images. |
-| [`benchmarks/`](benchmarks/) | The OCR study benchmark ([`ocr_eval/`](benchmarks/ocr_eval/): error-free rate, CER, critical errors, time, energy, graphs), shared service clients ([`agents.py`](benchmarks/agents.py)) and the LLM benchmark ([`benchmark_llm.py`](benchmarks/benchmark_llm.py)). |
+| [`benchmarks/`](benchmarks/) | The OCR study's energy measurement ([`ocr_eval/`](benchmarks/ocr_eval/): joules per image with `powermetrics`, plus graphs), shared service clients ([`agents.py`](benchmarks/agents.py)) and the LLM benchmark ([`benchmark_llm.py`](benchmarks/benchmark_llm.py)). |
 | [`archive/spring-2026-multi-agent/`](archive/spring-2026-multi-agent/) | YOLO and CLIP code, multi-agent benchmarks, results, figures and methodology docs from Spring 2026. |
 | [`Research Updates/`](Research%20Updates/) | Progress-update PDFs. |
 | [`ALGORITHMS.md`](ALGORITHMS.md), [`CARDS.md`](CARDS.md) | Spring 2026 docs on the learning framing and the flashcard format. |
