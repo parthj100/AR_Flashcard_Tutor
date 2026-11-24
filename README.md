@@ -1,74 +1,86 @@
-# Lens — Measuring Critical OCR Errors in Photographed Math Problems
+# Lens
 
-Lens is a study app: a student photographs a math problem (printed, handwritten or on a screen),
-OCR reads it, and a local LLM works from the transcript.
+Lens is a study app. A student takes a photo of a math problem, OCR reads the text, and a local
+language model works from that text.
 
-**Fall 2026 research question:** how accurately and efficiently can OCR read a math problem from a photo?
-We compare EasyOCR with one math- and handwriting-aware OCR model on the same images, and measure
-character and word error rate, *critical errors* (a changed number, decimal point, sign or operator,
-fraction or exponent, or unit or currency symbol), latency, and energy per image.
+**Our question this semester:** how well can OCR read a math problem from a photo?
 
-Last semester's prototype ran four agents (YOLOv8n, CLIP, EasyOCR, Phi-3-mini). YOLO and CLIP have been
-removed; that code, its benchmarks and its results are kept in
-[`archive/spring-2026-multi-agent/`](archive/spring-2026-multi-agent/) for reference.
+We compare two OCR tools on the same images: **EasyOCR** (general) and **Pix2Text** (built for math).
+Our main measure is **critical errors**: misreads that change the math, such as a wrong number, decimal
+point, sign, fraction, power or unit.
 
----
+## What's new in this branch
 
-## What's in this repo
+- **Both tools in one service.** The app can switch between EasyOCR and Pix2Text.
+- **Typeset benchmark.** 30 problems, each as a sharp and a blurred image (60 images).
+- **Photo pilot.** 73 real photos: 30 printed, 30 on a screen, 13 handwritten.
+- **Automatic scoring.** Counts critical errors by type.
+- **Reading order.** Puts EasyOCR's words back in the right order.
+- **Energy script.** Measures energy per image. Not run yet.
+- **Hand-label sheets.** For checking the scoring by hand. Not filled in yet.
+- **Licenses and related work.** See [LICENSES.md](LICENSES.md) and [RELATED_WORK.md](RELATED_WORK.md).
 
-| Path | What it is |
-|---|---|
-| [`prototype/`](prototype/) | Vanilla-JS web app (Lens UI): dashboard, decks, scan and flashcard views. The scan view captures a frame, sends it to the OCR service and shows the lines it read. See [`prototype/SETUP.md`](prototype/SETUP.md). |
-| [`OCR/`](OCR/) | OCR service ([`ocr_serve.py`](OCR/ocr_serve.py), port 8766) serving both OCR models, the shared model wrappers ([`engines.py`](OCR/engines.py)), last semester's OCR speed benchmark ([`benchmark.py`](OCR/benchmark.py)), and five test images. |
-| [`benchmarks/`](benchmarks/) | The OCR study benchmark ([`ocr_eval/`](benchmarks/ocr_eval/): error-free rate, CER, critical errors, time, energy, graphs), shared service clients ([`agents.py`](benchmarks/agents.py)) and the LLM benchmark ([`benchmark_llm.py`](benchmarks/benchmark_llm.py)). |
-| [`archive/spring-2026-multi-agent/`](archive/spring-2026-multi-agent/) | YOLO and CLIP code, multi-agent benchmarks, results, figures and methodology docs from Spring 2026. |
-| [`Research Updates/`](Research%20Updates/) | Progress-update PDFs. |
-| [`ALGORITHMS.md`](ALGORITHMS.md), [`CARDS.md`](CARDS.md) | Spring 2026 docs on the learning framing and the flashcard format. |
+## Results so far
 
----
+Share of images read with no critical errors:
 
-## Pipeline
+| Images | EasyOCR | Pix2Text |
+|---|---|---|
+| Typeset, sharp (30) | 43% | 83% |
+| Typeset, blurred (30) | 20% | 70% |
+| Real photos (73) | 47% | 56% |
 
-```
- Photo ──► Preprocessing ──► OCR ──────────────► Flagging ──► Transcript ──► Saved record ··► Phi-4-mini ··► Verifier / tutor card
- printed    straighten,      EasyOCR vs. one     low-conf.    beside the     photo, raw OCR,   (later)        (later)
- handwritten contrast, crop, math/handwriting    words, odd   photo; student corrections,
- on a screen line order      model, same images  numbers      fixes errors   model version
-```
+Neither tool read any of the 13 handwritten photos without a critical error.
 
-Today the app runs **Photo → EasyOCR or Pix2Text (switch in the scan view) → lines shown in the panel → Ollama
-writes a card**. Preprocessing, flagging, the editable transcript and the saved record are being built this semester.
+The typeset and real-photo rows use different problems and scoring scripts, so don't compare them with
+each other. The real-photo EasyOCR number uses the reading-order fix (45% without it).
 
-| Layer | Implementation |
-|---|---|
-| OCR | **EasyOCR 1.7.2** and **Pix2Text 1.1.7** (text + math as LaTeX), both English-only on CPU, one FastAPI service on port 8766. Settings for each are in [`OCR/engines.py`](OCR/engines.py). |
-| LLM | **Phi-4-mini** via Ollama (`phi4-mini`), JSON output constrained to a schema ([`prototype/lib/llm.js`](prototype/lib/llm.js)) |
-| Frontend | Vanilla HTML / CSS / JS, hash-routed, no build step |
-| Tooling | Python 3.12 (tested). Python 3.15 does not work: Pix2Text needs `onnxruntime`, which has no build for it yet. |
+## Run the app
 
----
-
-## Getting started
+You need Python 3.12 and [Ollama](https://ollama.com/).
 
 ```bash
-brew install python@3.12            # if you don't have it
 python3.12 -m venv .venv
 .venv/bin/pip install -r OCR/requirements.txt
 ollama pull phi4-mini
 ```
 
-Then, each in its own terminal:
+Then run each of these in its own terminal and open <http://localhost:5500>:
 
 ```bash
-OLLAMA_ORIGINS='*' ollama serve                     # LLM      :11434
-.venv/bin/python OCR/ocr_serve.py                   # OCR      :8766
-python3 -m http.server 5500 --directory prototype   # web app  :5500
+OLLAMA_ORIGINS='*' ollama serve
+.venv/bin/python OCR/ocr_serve.py
+python3 -m http.server 5500 --directory prototype
 ```
 
-Open <http://localhost:5500> and click **New scan**. Details and troubleshooting are in
-[`prototype/SETUP.md`](prototype/SETUP.md).
+Help: [prototype/SETUP.md](prototype/SETUP.md)
 
----
+## Run the benchmarks
+
+- **Typeset images:** [benchmarks/ocr_eval/README.md](benchmarks/ocr_eval/README.md)
+- **Real photos:** [benchmarks/README.md](benchmarks/README.md)
+
+## Run the tests
+
+```bash
+.venv/bin/python -m unittest discover -s benchmarks -p "test_*.py"
+.venv/bin/python -m unittest discover -s benchmarks/ocr_eval -p "test_*.py"
+.venv/bin/python -m unittest discover -s OCR -p "test_*.py"
+```
+
+## What's in each folder
+
+| Folder | What it is |
+|---|---|
+| [prototype/](prototype/) | The web app |
+| [OCR/](OCR/) | The OCR service |
+| [benchmarks/](benchmarks/) | Scripts that run and score the OCR tools |
+| [dataset/](dataset/) | Problems and images for the typeset benchmark |
+| [data/pilot/](data/pilot/) | Problems, photos and results for the photo pilot |
+| [Research Updates/](Research%20Updates/) | Progress reports |
+| [archive/](archive/) | Spring 2026 work (YOLO, CLIP) |
+
+[ALGORITHMS.md](ALGORITHMS.md) and [CARDS.md](CARDS.md) are also from Spring 2026.
 
 ## Team
 
@@ -77,12 +89,11 @@ Open <http://localhost:5500> and click **New scan**. Details and troubleshooting
 | **Alexis Juarez Gomez** | *(fill in Fall 2026 role)* |
 | **Parthkumar Joshi** | *(fill in Fall 2026 role)* |
 
----
-
 ## References
 
 - JaidedAI. *EasyOCR*. [GitHub](https://github.com/JaidedAI/EasyOCR)
+- Breezedeus. *Pix2Text*. [GitHub](https://github.com/breezedeus/Pix2Text)
 - Microsoft. *Phi-4-mini*. [Hugging Face](https://huggingface.co/microsoft/Phi-4-mini-instruct)
 - Ollama. *Local LLM runtime*. [ollama.com](https://ollama.com/)
 - Cobbe, K., et al. (2021). *Training Verifiers to Solve Math Word Problems* (GSM8K). arXiv:2110.14168.
-- Yuan, Y., et al. (2022). *Syntax-Aware Network for Handwritten Mathematical Expression Recognition* (HME100K). CVPR.
+- Hendrycks, D., et al. (2021). *Measuring Mathematical Problem Solving With the MATH Dataset*. arXiv:2103.03874.

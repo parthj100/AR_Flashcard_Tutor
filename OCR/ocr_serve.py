@@ -9,6 +9,18 @@ Routes:
   POST /ocr     — read an image: {image, model?, conf?}
                   model defaults to "easyocr"; see engines.py for the list
 
+The response gives the text three ways:
+  raw_text    what the app shows: lines in reading order (see line_order.py)
+  raw_output  the model's own output, in the model's own order
+  plain_text  raw_text with Pix2Text's LaTeX turned into plain text
+              (see latex_plain.py); benchmarks/run_ocr.py scores this
+
+EasyOCR's boxes are put into reading order, and the model is then labelled
+"easyocr+order" in /health. Set LENS_OCR_ORDER=0 to keep EasyOCR's own order.
+Pix2Text already groups its output into lines. The reordering happens here,
+not in engines.py, so benchmarks/ocr_eval (which calls the engines directly)
+is not affected.
+
 Run with:
     pip install -r OCR/requirements.txt
     python OCR/ocr_serve.py
@@ -33,12 +45,16 @@ from PIL import Image
 from pydantic import BaseModel, Field
 
 from engines import ENGINES, available_engines, get_engine
+from latex_plain import latex_to_plain
+from line_order import reading_order
 
 # --- Config ---------------------------------------------------------------
 
 OCR_CONF      = float(os.environ.get("LENS_OCR_CONF", "0.5"))
 PORT          = int(os.environ.get("LENS_OCR_PORT", "8766"))
 DEFAULT_MODEL = os.environ.get("LENS_OCR_MODEL", "easyocr")
+# Put EasyOCR's text boxes into reading order. Set to 0 for EasyOCR's own order.
+ORDER         = os.environ.get("LENS_OCR_ORDER", "1") != "0"
 
 logging.basicConfig(level=logging.INFO,
                     format="%(asctime)s %(levelname)s %(message)s")
@@ -93,7 +109,9 @@ class OcrResponse(BaseModel):
     model_settings: dict
     image_size:     dict
     inference_ms:   float
-    raw_text:       str
+    raw_text:       str   # lines joined in reading order
+    raw_output:     str   # lines joined in the model's own order
+    plain_text:     str   # raw_text with LaTeX turned into plain text
     lines:          List[OcrLine]
 
 
@@ -108,11 +126,30 @@ def decode_b64_image(s: str) -> Image.Image:
     return Image.open(io.BytesIO(raw)).convert("RGB")
 
 
+def reorders(name: str) -> bool:
+    """Whether this service puts the model's boxes into reading order."""
+    return ORDER and name == "easyocr"
+
+
+def plain_line(line: dict) -> str:
+    """A line's text with its formulas turned from LaTeX into plain text."""
+    segments = line.get("segments")
+    if not segments:
+        return line["text"]
+    return " ".join(latex_to_plain(s["text"]) if s["type"] == "math" else s["text"]
+                    for s in segments)
+
+
 # --- Routes ---------------------------------------------------------------
 
 @app.get("/health")
 def health():
-    models = {name: get_engine(name).info() for name in available_engines()}
+    models = {
+        name: {**get_engine(name).info(),
+               "label": f"{name}+order" if reorders(name) else name,  # name to use in results
+               "line_order": reorders(name)}
+        for name in available_engines()
+    }
     return {
         "ok": True,
         "ocr": " · ".join(models),       # kept for older clients
@@ -143,13 +180,19 @@ def ocr(req: OcrRequest):
     lines = engine.read(im, conf=conf)
     dt_ms = (time.perf_counter() - t0) * 1000
 
+    raw_output = " ".join(l["text"] for l in lines)
+    if reorders(engine.name):
+        lines = reading_order(lines)
+
     return OcrResponse(
         model=engine.name,
         model_version=engine.version,
-        model_settings=engine.settings,
+        model_settings={**engine.settings, "line_order": reorders(engine.name)},
         image_size={"w": im.width, "h": im.height},
         inference_ms=dt_ms,
         raw_text=" ".join(l["text"] for l in lines),
+        raw_output=raw_output,
+        plain_text=" ".join(plain_line(l) for l in lines),
         lines=[OcrLine(**l) for l in lines],
     )
 

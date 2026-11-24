@@ -1,0 +1,10 @@
+{
+  "model": "easyocr+order",
+  "version": "1.7.2",
+  "endpoint": "http://127.0.0.1:8768",
+  "conf": 0.0,
+  "images": 103,
+  "errors": 0,
+  "warmup_ms": 10018.5,
+  "finished": "2026-11-12 14:46:25"
+}

@@ -119,6 +119,8 @@ def ocr_extract(img: Path, *, conf: float = 0.5, model: str | None = None,
         "n_lines": len(lines),
         "mean_conf": (sum(confs) / len(confs)) if confs else 0.0,
         "raw_text": payload.get("raw_text", ""),
+        "raw_output": payload.get("raw_output", ""),  # model's own format (LaTeX for Pix2Text)
+        "plain_text": payload.get("plain_text", ""),  # LaTeX turned into plain text
         "lines": lines,
     }
 

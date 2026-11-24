@@ -1,0 +1,608 @@
+image_id,problem_id,shot,condition,split,path,device,lighting,angle,writer,notes,model,model_version,hypothesis,raw_output,inference_ms,latency_ms,n_lines,mean_conf,error
+gsm-0563_printed,gsm-0563,1,printed,dev,photos/gsm-0563_printed.jpg,,,,,,pix2text,1.1.7,"James decides to buy birthday candles for his 2
+sons. One of them is 12 and the other is 4 years
+younger. A pack of 5 candles costs $3. How
+much does James spend on candles?
+(λ) = (λ)","James decides to buy birthday candles for his $2$
+sons. One of them is 12 and the other is $4$ years
+younger. $\mathsf{A}$ pack of $5$ candles costs $3. How
+much does James spend on candles?
+$$( \lambda)=( \lambda)$$",499.0,510.2,12,0.9003,
+gsm-0988_printed,gsm-0988,2,printed,dev,photos/gsm-0988_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Jessica makes $2,000.00 a month. She sets
+25% of her paycheck aside to put towards fancy
+shoes. Each pair of shoes she buys costs
+$1,000.00. How many shoes can she buy in a
+year?
+7","Jessica makes $2,000.00 a month. She sets
+25% of her paycheck aside to put towards fancy
+shoes. Each pair of shoes she buys costs
+$1,000.00. How many shoes can she buy in a
+year?
+$$7$$",236.7,249.7,6,0.8895,
+gsm-1083_printed,gsm-1083,3,printed,dev,photos/gsm-1083_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"The bananas at the supermarket cost $0.80
+each, or a bunch for $3.00. Jenny buys 10
+bunches that average 4 bananas per bunchon
+How much money, in dollars, did she save by
+buying the bananas in bunches instead of 00
+individually? thei g","The bananas at the supermarket cost $0.80
+each, or a bunch for $3.00. Jenny buys 10
+bunches that average $4$ bananas per bunchon
+How much money, in dollars, did she save by
+buying the bananas in bunches instead of 00
+individually? thei g",255.5,265.7,9,0.9373,
+gsm-0574_printed,gsm-0574,4,printed,dev,photos/gsm-0574_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"A food truck only sells grilled cheeses. They
+source their bread for $3.00 a loaf and each loaf
+makes 10 sandwiches. They spend $30.00 on
+different cheeses and condiments per 10 0
+sandwiches. If they sell 10 sandwiches for $7.00
+each, what is their net profit?","$\mathsf{A}$ food truck only sells grilled cheeses. They
+source their bread for $3.00 a loaf and each loaf
+makes 10 sandwiches. They spend $30.00 on
+different cheeses and condiments per $1 0$ 0
+sandwiches. If they sell 10 sandwiches for $7.00
+each, what is their net profit?",328.4,341.8,9,0.8928,
+gsm-0541_printed,gsm-0541,5,printed,dev,photos/gsm-0541_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Elvis has a monthly saving target of $1125. In
+April, he wants to save twice as much daily in
+the second half as he saves in the first half in
+order to hit his target. How much does he have
+to save for each day in the second half of the
+month?","Elvis has a monthly saving target of $1125. In
+April, he wants to save twice as much daily in
+the second half as he saves in the first half in
+order to hit his target. How much does he have
+to save for each day in the second half of the
+month?",184.3,198.4,6,0.9871,
+gsm-0669_printed,gsm-0669,6,printed,dev,photos/gsm-0669_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"For every muffin, Svetlana needed 5 tablespoons
+of flour, 3 tablespoons of sugar, and 0.25 of a.
+tablespoon of salt. How many tablespoons of
+dry ingredients would Svetlana need to make 16
+muffins$5.00 and
+w.much","For every muffin, Svetlana needed 5 tablespoons
+of flour, 3 tablespoons of sugar, and 0.25 of a.
+tablespoon of salt. How many tablespoons of
+dry ingredients would Svetlana need to make 16
+muffins$5.00 and
+w.much",194.6,204.9,6,0.9285,
+gsm-1279_printed,gsm-1279,7,printed,dev,photos/gsm-1279_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Avery needs to buy a 3 piece place setting cost
+(dinner & salad plate and a bowl) for her holiday
+dinner. She's having 12 people over for dinner. If
+the dinner plates cost $6.00 each and bowls
+each cost $5.00 and the salad plates cost $4.00,
+how much will she spend on place settings?","Avery needs to buy a 3 piece place setting cost
+(dinner & salad plate and a bowl) for her holiday
+dinner. She's having 12 people over for dinner. If
+the dinner plates cost $6.00 each and bowls
+each cost $5.00 and the salad plates cost $4.00,
+how much will she spend on place settings?",198.9,212.5,6,0.9867,
+gsm-0714_printed,gsm-0714,8,printed,dev,photos/gsm-0714_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"James decides to pick some blueberries. It cost
+$20 to go picking and then another $1.5 per
+pound. He picked 30 pounds of blueberries.
+How much did he save compared to buying at
+the store for $2.5 a pound?","James decides to pick some blueberries. It cost
+$20 to go picking and then another $1.5 per
+pound. He picked 30 pounds of blueberries.
+How much did he save compared to buying at
+the store for $2.5 a pound?",190.8,205.3,5,0.9824,
+gsm-0512_printed,gsm-0512,9,printed,dev,photos/gsm-0512_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Hannah needs to drink 60 ml of water for each
+kilometer she runs. If her gym teacher tells her to
+run ^8 laps and each lap is 0.25 km, how many
+milliliters of water will Hannah need to drink?
+Ue dinnar shg","Hannah needs to drink 60 ml of water for each
+kilometer she runs. If her gym teacher tells her to
+run ${}^{8}$ laps and each lap is 0.25 km, how many
+milliliters of water will Hannah need to drink?
+Ue dinnar shg",241.7,250.7,7,0.9395,
+gsm-0426_printed,gsm-0426,10,printed,dev,photos/gsm-0426_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Aleksandra went to a restaurant for dinner. She
+ordered some soup, a bagel, and a piece of
+cake. The bagel cost $4, and the soup 25%
+more. The cake is only half of the price of the
+bagel. How much did Aleksandra need to pay for
+the dinner she ordered?
+meter huro","Aleksandra went to a restaurant for dinner. She
+ordered some soup, a bagel, and a piece of
+cake. The bagel cost $4, and the soup 25%
+more. The cake is only half of the price of the
+bagel. How much did Aleksandra need to pay for
+the dinner she ordered?
+meter huro",182.8,194.7,7,0.9676,
+gsm-0093_printed,gsm-0093,11,printed,dev,photos/gsm-0093_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Lee used to be able to run the 400-meter hurdles
+two seconds faster than Gerald would run the
+400-meter hurdles. But Gerald changed his diet,
+which improved his speed by 10%. If Lee runs
+the 400-meter hurdles in 38 seconds, how fast
+can Gerald, with his improved diet, run the 400-
+meter hurdles, in seconds?","Lee used to be able to run the 400-meter hurdles
+two seconds faster than Gerald would run the
+400-meter hurdles. But Gerald changed his diet,
+which improved his speed by 10%. If Lee runs
+the 400-meter hurdles in 38 seconds, how fast
+can Gerald, with his improved diet, run the 400-
+meter hurdles, in seconds?",203.2,216.3,7,0.9805,
+gsm-1213_printed,gsm-1213,12,printed,dev,photos/gsm-1213_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Stephen borrowed $300 from his sister and
+promised to return it with an additional 2% of the
+money he owed. For 11 months Stephen will
+give his sister $25 per month and the remaining
+amount, including the interest, will be paid on the
+twelfth month. How much will Stephen pay in the
+twelfth month?","Stephen borrowed $300 from his sister and
+promised to return it with an additional 2% of the
+money he owed. For 11 months Stephen will
+give his sister $25 per month and the remaining
+amount, including the interest, will be paid on the
+twelfth month. How much will Stephen pay in the
+twelfth month?",207.4,224.0,7,0.9863,
+gsm-0413_printed,gsm-0413,13,printed,dev,photos/gsm-0413_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Marcy makes homemade candles that she
+markets as 99% guaranteed not to explode. 5%
+of the more dangerous candles also have a
+defect that makes them smell like wet dog. If she
+makes 50000 candles, how many of them will
+both smell like wet dog and explode?","Marcy makes homemade candles that she
+markets as 99% guaranteed not to explode. 5%
+of the more dangerous candles also have a
+defect that makes them smell like wet dog. If she
+makes 50000 candles, how many of them will
+both smell like wet dog and explode?",199.5,209.3,6,0.9874,
+gsm-0080_printed,gsm-0080,14,printed,dev,photos/gsm-0080_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Two girls each got 1/6 of the 24 liters of water.
+Then a boy got 6 liters of water. How many liters
+Of water were left?","Two girls each got 1/6 of the 24 liters of water.
+Then a boy got $6$ liters of water. How many liters
+Of water were left?",214.3,225.7,5,0.9837,
+gsm-0631_printed,gsm-0631,15,printed,dev,photos/gsm-0631_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"In a jewelers store, the price of a gold Jewell is
+4/5 times as much as the price of a diamond
+Jewell. The cost of a silver Jewell is $400 less
+than the price of gold. If a diamond Jewell is
+$2000, find the total price for all three jewels.","In a jewelers store, the price of a gold Jewell is
+4/5 times as much as the price of a diamond
+Jewell. The cost of a silver Jewell is $400 less
+than the price of gold. If a diamond Jewell is
+$2000, find the total price for all three jewels.",173.8,184.0,5,0.9875,
+gsm-1159_printed,gsm-1159,16,printed,dev,photos/gsm-1159_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Carla just gave birth to identical octuplets. She
+dresses 3/4 of them in purple and 1/4 in blue. If
+all the blue-wearers and 1/3 of the purple
+wearers also wear bows, what is the percentage
+chance a baby wearing a bow is wearing purple?","Carla just gave birth to identical octuplets. She
+dresses 3/4 of them in purple and 1/4 in blue. If
+all the blue-wearers and 1/3 of the purple
+wearers also wear bows, what is the percentage
+chance a baby wearing a bow is wearing purple?",190.5,200.7,5,0.9853,
+gsm-0912_printed,gsm-0912,17,printed,dev,photos/gsm-0912_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"John drinks a bottle of water every half hour. A t
+normal sudoku puzzle takes him 45 minutes. An
+extreme sudoku takes 4 times that long. How
+many bottles of water does he drink in that time?","John drinks a bottle of water every half hour. $\mathsf{A}$ t
+normal sudoku puzzle takes him 45 minutes. An
+extreme sudoku takes $4$ times that long. How
+many bottles of water does he drink in that time?",280.9,291.2,8,0.9546,
+gsm-1002_printed,gsm-1002,18,printed,dev,photos/gsm-1002_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Lisa and Peter are selling chocolate bars door to
+door. Lisa sold three and a half boxes oft
+chocolate bars, and Peter sold four and a half
+boxes. They sold 64 chocolate bars together.
+How many chocolate bars are in a box?","Lisa and Peter are selling chocolate bars door to
+door. Lisa sold three and a half boxes oft
+chocolate bars, and Peter sold four and a half
+boxes. They sold 64 chocolate bars together.
+How many chocolate bars are in a box?",186.7,198.6,5,0.9712,
+gsm-1280_printed,gsm-1280,19,printed,dev,photos/gsm-1280_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Steve put together a puzzle that took 10 hours of
+hard work to complete. Anna put together the
+same puzzle in 2 hours more than half Steve's
+time. How long did it take Anna to finish the
+difficult puzzle?","Steve put together a puzzle that took 10 hours of
+hard work to complete. Anna put together the
+same puzzle in $2$ hours more than half Steve's
+time. How long did it take Anna to finish the
+difficult puzzle?",225.2,236.4,7,0.972,
+gsm-1203_printed,gsm-1203,20,printed,dev,photos/gsm-1203_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Mattison is 60 inches tall. His two-story house is
+7 times as high as he is. The floor to the ceiling
+on the first floor is thrice as high as he is. How
+high is the roof from the second floor's floor in
+inches?","Mattison is 60 inches tall. His two-story house is
+7 times as high as he is. The floor to the ceiling
+on the first floor is thrice as high as he is. How
+high is the roof from the second floor's floor in
+inches?",175.8,189.6,5,0.9892,
+math-pre-0496_printed,math-pre-0496,21,printed,dev,photos/math-pre-0496_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Find1/3 - 2/9. al numbers p>1 a
+what is the val","$$\mathsf{F i n d} ~ \cfrac{1} {3}-\cfrac{2} {9} .$$ al numbers p>1 a
+what is the val",1191.4,1199.7,3,0.8973,
+math-alg-0480_printed,math-alg-0480,22,printed,dev,photos/math-alg-0480_printed.jpg,,,,,,pix2text,1.1.7,"F p > 1 and q > 1 so
+that 1/(-+)1/- = 1 ? what is the value of (p I
+)(q - 1)`","F $p > 1$ and $q > 1$ so
+that $\frac{1} {-+} \frac{1} {-}=1$ ? what is the value of $( p$ I
+$) ( q-1 ) `$",597.8,607.8,12,0.859,
+math-alg-1185_printed,math-alg-1185,23,printed,dev,photos/math-alg-1185_printed.jpg,,,,,,pix2text,1.1.7,"Ifx = 1 + x/(1 + x/(1 + x/(1 + ...))) , then what is x ?","$$\operatorname{I f} x=1+\cfrac{x} {1+\cfrac{x} {1+\cfrac{x} {1+\cdots}}}$$ , then what is $x$ ?",455.5,470.6,4,0.98,
+math-ialg-0647_printed,math-ialg-0647,24,printed,dev,photos/math-ialg-0647_printed.jpg,,,,,rotated 90 deg CCW at import (saved sideways),pix2text,1.1.7,"Find a quadratic with real coefficients and
+quadratic term x^2 that has 5 - 4i as a root.","Find a quadratic with real coefficients and
+quadratic term $x^{2}$ that has $5-4 i$ as a root.",385.8,400.1,6,0.9868,
+math-pre-0816_printed,math-pre-0816,25,printed,dev,photos/math-pre-0816_printed.jpg,,,,,,pix2text,1.1.7,1 dotx = 6 then what is √(x^2) - 3?,1 $\dot{x}=6$ then what is $\sqrt{x^{2}}-3 ?$,313.5,321.9,4,0.7682,
+math-alg-1000_printed,math-alg-1000,26,printed,dev,photos/math-alg-1000_printed.jpg,,,,,,pix2text,1.1.7,"Tonienao ta on
+√(x^3 - 2^y) when x = 5 and y = 2?","Tonienao ta on
+$\sqrt{x^{3}-2^{y}}$ when $x=5$ and $y=2 ?$",348.0,359.4,6,0.8603,
+math-ialg-0363_printed,math-ialg-0363,27,printed,dev,photos/math-ialg-0363_printed.jpg,,,,,,pix2text,1.1.7,"Solve the equation ntegers (ess than 200
+root3ofx + √(x + 12) = 0
+for x .","Solve the equation ntegers (ess than 200
+$$\root3 \of{x}+\sqrt{x+1 2}=0$$
+for $x$ .",305.2,315.7,5,0.9242,
+math-pre-0555_printed,math-pre-0555,28,printed,dev,photos/math-pre-0555_printed.jpg,,,,,,pix2text,1.1.7,How many positive integers are less than 200T?,How many positive integers are less than 200T?,154.0,165.2,1,0.9925,
+math-alg-0366_printed,math-alg-0366,29,printed,dev,photos/math-alg-0366_printed.jpg,,,,,,pix2text,1.1.7,"Solve for x , where x > 0 and 0 = -9x^2 -
+3x + 2 . Express your answer as a simplified
+common fraction.","Solve for $x$ , where $x > 0$ and $0=-9 x^{2}$ -
+$3 x+2$ . Express your answer as a simplified
+common fraction.",416.2,425.3,10,0.967,
+math-ialg-0060_printed,math-ialg-0060,30,printed,dev,photos/math-ialg-0060_printed.jpg,,,,,,pix2text,1.1.7,"Let x_1 = 97 , and for n > 1 , define x_n =
+n/(x_(n - 1)) . Calculate x_1x_2...x_8 .","Let $x_{1}=9 7$ , and for $n > 1$ , define $x_{n}=$
+$\frac{n} {x_{n-1}}$ . Calculate $x_{1} x_{2} \cdots x_{8}$ .",539.5,551.8,10,0.9701,
+gsm-0563_handwritten,gsm-0563,1,handwritten,dev,photos/gsm-0563_handwritten.jpg,,,,,,pix2text,1.1.7,"widetildeinta_(Me)s Of Hem is I2 and the other is biguplus we
+of 5 decides to bug birthday Candlerhis 2 notA
+One candle at b3. Howmud do James Spend cn camdle.","$\widetilde{\int} a_{\mathrm{M e}} s$ $\mathcal{O} f$ Hem is I2 and the other is $\biguplus$ we
+of $5$ decides to $\mathrm{b u g}$ birthday Candlerhis $2$ $\not\! \! A$
+$\mathrm{O n e}$ candle at b3. Howmud do James Spend cn camdle.",700.0,715.7,14,0.8358,
+gsm-0988_handwritten,gsm-0988,2,handwritten,dev,photos/gsm-0988_handwritten.jpg,,,,,,pix2text,1.1.7,"2, OOO.OO a mon th. She set. 25% omicron^F M
+she che ae root51, °00.otimes0 Hou many shoes Can she buy in a
+fancy Shoes. Each pair of shoe.
+logscot","$2 , \mathrm{O O O . O O}$ a mon th. She set. $2 5 \%$ $\omicron^{\mathrm{F}}$ M
+$\mathrm{s h e}$ che ae $\root5 1 , \circ0 0 . \otimes0$ Hou many shoes Can she buy in $a$
+$f a n c y$ Shoes. Each pair of shoe.
+$\log s \cot$",667.8,682.6,13,0.8052,
+gsm-1083_handwritten,gsm-1083,3,handwritten,dev,photos/gsm-1083_handwritten.jpg,,,,,,pix2text,1.1.7,"Te boome a^dagger boy^(in)g
+I 83.00.Jennyb(xy) by triangleleft α bundh fr underbraceunderbracesurd
+f_0ω bunshe msfead α imathodot ""bunches +bccl banahas per bun
+much non ey I'nduduadly?","Te boome $a^{\dagger}$ $b o y^{i n} g$
+I $8 3 . 0 0 . J e n n y b ( x y )$ $\operatorname{b y}$ $\triangleleft$ $\alpha$ bundh fr $\underbrace{\underbrace{\surd}}$
+$f_{0} \omega$ bunshe msfead $\alpha$ $\imath\odot$ ""bunches $+ b c c l$ banahas per bun
+much non $e y$ I'nduduadly?",915.2,924.3,20,0.7693,
+math-pre-0496_handwritten,math-pre-0496,21,handwritten,dev,photos/math-pre-0496_handwritten.jpg,,,,,,pix2text,1.1.7,"1)(q
+tand1/3 - 2/9.","1)(q
+$$\tan d \frac{1} {3}-\frac{2} {9} .$$",244.7,257.1,2,0.8813,
+math-alg-0480_handwritten,math-alg-0480,22,handwritten,dev,photos/math-alg-0480_handwritten.jpg,,,,,,pix2text,1.1.7,"What imath_3 the value log_(of)(p - 1)(q - 1) : q > ± varsigma_∞ Has 1/p + 1/q = I
+(Jiveh tuo real numbus P > L and Hhat","What $\bar{\imath}_{3}$ the value $\log_{o f} \left( p-1 \right) \left( q-1 \right)$ : $q > \pm$ $\varsigma_{\infty}$ Has $\frac{1} {p}+\frac{1} {q}=I$
+$( J i v e h$ tuo real numbus $\mathrm{P} >$ L and Hhat",691.8,704.8,14,0.825,
+math-alg-1185_handwritten,math-alg-1185,23,handwritten,dev,photos/math-alg-1185_handwritten.jpg,,,,,,pix2text,1.1.7,"IFx = I^+x/(I^+x/(I^+x/(I^+x/(I^+...)))), otimesH_(reh)whcdis × I^-","$$I F \quad x=\ I^{+} \frac{x} {I^{+} \displaystyle\frac{x} {I^{+} \displaystyle\frac{x} {I^{+} \displaystyle\frac{x} {I^{+} \cdots}}}} \ , \ \otimes H_{r e h} \ \ w h c d \ \ i s \ \times\ I^{-}$$",583.4,592.4,1,0.8424,
+math-ialg-0647_handwritten,math-ialg-0647,24,handwritten,dev,photos/math-ialg-0647_handwritten.jpg,,,,,,pix2text,1.1.7,"Find c_1 quadatie wrth real (oefereat and quadrudie
++ omicron 23 tat has 5-4t as a rot.","Find $c_{1}$ quadatie wrth $\ r e a l$ (oefereat and quadrudie
++ $\omicron$ 23 tat has 5-4t as a rot.",330.8,344.3,8,0.7982,
+math-pre-0816_handwritten,math-pre-0816,25,handwritten,dev,photos/math-pre-0816_handwritten.jpg,,,,,,pix2text,1.1.7,Iiv. varTheta_I Hen tohad i √(x^2) - 3.^2,Iiv. $\varTheta_{I}$ Hen tohad i $\sqrt{x^{2}}-3 .^{2}$,290.0,299.9,4,0.7383,
+math-alg-1000_handwritten,math-alg-1000,26,handwritten,dev,photos/math-alg-1000_handwritten.jpg,,,,,,pix2text,1.1.7,"for.
+What is the poitive valbe Theta^f the s expresion
+VR'-z uben LaS and y = 2 :","for.
+What is the poitive valbe $\Theta^{\mathrm{f}}$ the s expresion
+VR'-z uben LaS and $y=2$ :",299.8,313.6,7,0.8334,
+math-ialg-0363_handwritten,math-ialg-0363,27,handwritten,dev,photos/math-ialg-0363_handwritten.jpg,,,,,,pix2text,1.1.7,"So Ive the eq0atan2m
+∛(x) + ∛(x + 12) = 0
+fr x","So $\mathsf{I v e}$ the $e q 0 a \tan2 m$
+$$\sqrt[ 3 ] {x}+\sqrt[ 3 ] {x+1 2}=0$$
+fr x",400.7,409.9,6,0.8562,
+math-pre-0555_handwritten,math-pre-0555,28,handwritten,dev,photos/math-pre-0555_handwritten.jpg,,,,,,pix2text,1.1.7,"common fraction.
+Hou many Pos_1 me ntgo an es aon 1oo+ ?","common fraction.
+Hou many $P o s_{1}$ me ntgo an es aon 1oo+ ?",214.7,230.0,4,0.7871,
+math-alg-0366_handwritten,math-alg-0366,29,handwritten,dev,photos/math-alg-0366_handwritten.jpg,,,,,,pix2text,1.1.7,"Sove fov chi_I wohce x>Oand O-ax=3x+2.
+E_( × Press) gor anuen ai a varsigmai_mvarphimid_ifieJ Leocern fractan","Sove fov $\chi_{I}$ wohce x>Oand O-ax=3x+2.
+$E_{\times P r e s s}$ gor anuen ai a $\varsigma i_{m} \varphi\mid_{i} f i e J$ Leocern $f r a c \tan$",461.1,473.5,8,0.7969,
+math-ialg-0060_handwritten,math-ialg-0060,30,handwritten,dev,photos/math-ialg-0060_handwritten.jpg,,,,,,pix2text,1.1.7,"∠e^tx_1 = 97_1andforn > I_1definex_n = n/(x_(n - 1))
+Calculatex_1x_2...x_8","$$\angle e^{t} x_{1}=9 7_{1} \mathrm{a n d f o r n > I_{1} d e f i n e} x_{n}=\frac{n} {x_{n-1}}$$
+$$C a l c u l a t e x_{1} x_{2} \ldots x_{8}$$",493.1,502.0,2,0.9111,
+gsm-0563_screen,gsm-0563,1,screen,dev,photos/gsm-0563_screen.jpg,,,,,,pix2text,1.1.7,"James decides to buy birthday candles for his 2 Sons. One of them is 12
+and the other is 4 years younger. A pack of 5 candles costs $3. How
+much does James spend on candles?","James decides to buy birthday candles for his $2$ Sons. One of them is 12
+and the other is 4 years younger. A pack of 5 candles costs $3. How
+much does James spend on candles?",220.1,235.9,5,0.9347,
+gsm-0988_screen,gsm-0988,2,screen,dev,photos/gsm-0988_screen.jpg,,,,,,pix2text,1.1.7,"Jessica makes $2,000.00 a month. She sets 25% of her paycheck aside
+to put towards fancy shoes. Each pair of shoes she buys costs
+$1,000.00. How many shoes can she buy in a year?","Jessica makes $2,000.00 a month. She sets 25% of her paycheck aside
+to put towards fancy shoes. Each pair of shoes she buys costs
+$1,000.00. How many shoes can she buy in a year?",172.1,183.0,3,0.9811,
+gsm-1083_screen,gsm-1083,3,screen,dev,photos/gsm-1083_screen.jpg,,,,,,pix2text,1.1.7,"The bananas at the supermarket cost $0.80 each, or a bunch for $3.00.
+Jenny buys 10 bunches that average 4 bananas per bunch. How much
+money, in dollars, did she save by buying the bananas in bunches
+instead of individually?","The bananas at the supermarket cost $0.80 each, or a bunch for $3.00.
+Jenny buys 10 bunches that average 4 bananas per bunch. How much
+money, in dollars, did she save by buying the bananas in bunches
+instead of individually?",186.8,198.8,4,0.9818,
+gsm-0574_screen,gsm-0574,4,screen,dev,photos/gsm-0574_screen.jpg,,,,,,pix2text,1.1.7,"A food truck only sells grilled cheeses. They source their bread for $3.00
+a loaf and each loaf makes 10 sandwiches. They spend $30.00 on
+different cheeses and condiments per 10 sandwiches. If they sell 10
+sandwiches for $7.00 each, what is their net profit?","$\mathsf{A}$ food truck only sells grilled cheeses. They source their bread for $3.00
+a loaf and each loaf makes 10 sandwiches. They spend $30.00 on
+different cheeses and condiments per $1 0$ sandwiches. If they sell 10
+sandwiches for $7.00 each, what is their net profit?",304.2,316.5,7,0.9853,
+gsm-0541_screen,gsm-0541,5,screen,dev,photos/gsm-0541_screen.jpg,,,,,,pix2text,1.1.7,"Elvis has a monthly saving target of $1125. In Apri, he wants to save
+twice as much daily in the second half as he saves in the first half in
+order to hit his target. How much does he have to save for each day in
+the second half of the month?","Elvis has a monthly saving target of $1125. In Apri, he wants to save
+twice as much daily in the second half as he saves in the first half in
+order to hit his target. How much does he have to save for each day in
+the second half of the month?",186.9,200.4,4,0.9896,
+gsm-0669_screen,gsm-0669,6,screen,dev,photos/gsm-0669_screen.jpg,,,,,,pix2text,1.1.7,"For every muffin, Svetlana needed 5 tablespoons of flour, 3 tablespoons
+of sugar, and 0.25 of a tablespoon of salt. How many tablespoons of dry
+ingredients would Svetlana need to make 16 muffins?","For every muffin, Svetlana needed 5 tablespoons of flour, 3 tablespoons
+of sugar, and 0.25 of a tablespoon of salt. How many tablespoons of dry
+ingredients would Svetlana need to make 16 muffins?",180.8,196.6,3,0.9765,
+gsm-1279_screen,gsm-1279,7,screen,dev,photos/gsm-1279_screen.jpg,,,,,,pix2text,1.1.7,"Avery needs to buy a 3 piece place setting (dinner 8 salad plate and a
+bowl) for her holiday dinner. She's having 12 people over for dinner. If
+the dinner plates cost $6.00 each and bowls each cost $5.00 and the
+salad plates cost $4.00, how much will she spend on place settings?","Avery needs to buy a 3 piece place setting (dinner $\mathbf{8}$ salad plate and a
+bowl) for her holiday dinner. She's having 12 people over for dinner. If
+the dinner plates cost $6.00 each and bowls each cost $5.00 and the
+salad plates cost $4.00, how much will she spend on place settings?",252.8,265.4,6,0.9606,
+gsm-0714_screen,gsm-0714,8,screen,dev,photos/gsm-0714_screen.jpg,,,,,,pix2text,1.1.7,"James decides to pick some blueberries. It cost $20 to go picking and
+then another Updownarrow1.5 per pound. He picked 30 pounds of blueberries. How
+much did he save compared to buying at the store for $2.5 a pound?","James decides to pick some blueberries. It cost $20 to go picking and
+then another $\Updownarrow1 . 5$ per pound. He picked 30 pounds of blueberries. How
+much did he save compared to buying at the store for $2.5 a pound?",251.4,262.4,5,0.9779,
+gsm-0512_screen,gsm-0512,9,screen,dev,photos/gsm-0512_screen.jpg,,,,,,pix2text,1.1.7,"Hannah needs to drink 60 ml of water for each kilometer she runs. If her
+gym teacher tells her to run 8 laps and each lap is 0.25 km, how many
+milliliters of water will Hannah need to drink?","Hannah needs to drink 60 ml of water for each kilometer she runs. If her
+gym teacher tells her to run ${\bf8}$ laps and each lap is 0.25 km, how many
+milliliters of water will Hannah need to drink?",235.5,252.8,5,0.963,
+gsm-0426_screen,gsm-0426,10,screen,dev,photos/gsm-0426_screen.jpg,,,,,,pix2text,1.1.7,"Aleksandra went to a restaurant for dinner. She ordered some soup, a
+bagel, and a piece of cake. The bagel cost §4, and the soup 25% more.
+The cake is only half of the price of the bagel. How much did Aleksandra
+need to pay for the dinner she ordered?","Aleksandra went to a restaurant for dinner. She ordered some soup, a
+bagel, and a piece of cake. The bagel cost $\S4 ,$ and the soup 25% more.
+The cake is only half of the price of the bagel. How much did Aleksandra
+need to pay for the dinner she ordered?",249.3,264.9,6,0.9794,
+gsm-0093_screen,gsm-0093,11,screen,dev,photos/gsm-0093_screen.jpg,,,,,,pix2text,1.1.7,"Lee used to be able to run the 400-meter hurdles two seconds faster
+than Gerald would run the 400-meter hurdles. But Gerald changed his
+diet, which improved his speed by 10%. If Lee runs the 400-meter
+hurdles in 38 seconds, how fast can Gerald, with his improved diet, run
+the 400-meter hurdles, in seconds?","Lee used to be able to run the 400-meter hurdles two seconds faster
+than Gerald would run the 400-meter hurdles. But Gerald changed his
+diet, which improved his speed by 10%. If Lee runs the 400-meter
+hurdles in 38 seconds, how fast can Gerald, with his improved diet, run
+the 400-meter hurdles, in seconds?",208.4,222.9,5,0.9796,
+gsm-1213_screen,gsm-1213,12,screen,dev,photos/gsm-1213_screen.jpg,,,,,,pix2text,1.1.7,"Stephen borrowed $300 from his sister and promised to return it with an
+additional 2% of the money he owed. For 11 months Stephen will give
+his sister $25 per month and the remaining amount, including the
+interest, will be paid on the twelfth month. How much will Stephen pay
+in the twelfth month?","Stephen borrowed $300 from his sister and promised to return it with an
+additional 2% of the money he owed. For 11 months Stephen will give
+his sister $25 per month and the remaining amount, including the
+interest, will be paid on the twelfth month. How much will Stephen pay
+in the twelfth month?",206.4,218.3,5,0.9772,
+gsm-0413_screen,gsm-0413,13,screen,dev,photos/gsm-0413_screen.jpg,,,,,,pix2text,1.1.7,"Marcy makes homemade candles that she markets as 99% guaranteed
+not to explode. 596 of the more dangerous candles also have a defect
+that makes them smell like wet dog. If she makes 50000 candles, how
+many of them will both smell like wet dog and explode?","Marcy makes homemade candles that she markets as 99% guaranteed
+not to explode. $5 9 6$ of the more dangerous candles also have a defect
+that makes them smell like wet dog. If she makes 50000 candles, how
+many of them will both smell like wet dog and explode?",243.6,258.1,6,0.9828,
+gsm-0080_screen,gsm-0080,14,screen,dev,photos/gsm-0080_screen.jpg,,,,,,pix2text,1.1.7,"Two girls each got 1/6 of the 24 liters of water. Then a boy got 6 liters of
+water. How many liters of water were left?","Two girls each got 1/6 of the 24 liters of water. Then a boy got 6 liters of
+water. How many liters of water were left?",174.0,183.9,2,0.9819,
+gsm-0631_screen,gsm-0631,15,screen,dev,photos/gsm-0631_screen.jpg,,,,,,pix2text,1.1.7,"In a jewelers store, the price of a gold Jewell is 4/5 times as much as the
+price of a diamond Jewell. The cost of a silver Jewell is $400 less than
+the price of gold. If a diamond Jewell is $2000, find the total price for all
+three jewels.","In a jewelers store, the price of a gold Jewell is 4/5 times as much as the
+price of a diamond Jewell. The cost of a silver Jewell is $400 less than
+the price of gold. If a diamond Jewell is $2000, find the total price for all
+three jewels.",185.4,198.9,4,0.9842,
+gsm-1159_screen,gsm-1159,16,screen,dev,photos/gsm-1159_screen.jpg,,,,,,pix2text,1.1.7,"Carla just gave birth to identical octuplets. She dresses 3/4 of them in
+purple and 1/4 in blue. If all the blue-wearers and 1/3 of the purple
+wearers also wear bows, what is the percentage chance a baby wearing
+a bow is wearing purple?","Carla just gave birth to identical octuplets. She dresses 3/4 of them in
+purple and 1/4 in blue. If all the blue-wearers and 1/3 of the purple
+wearers also wear bows, what is the percentage chance a baby wearing
+a bow is wearing purple?",198.5,209.2,4,0.9841,
+gsm-0912_screen,gsm-0912,17,screen,dev,photos/gsm-0912_screen.jpg,,,,,,pix2text,1.1.7,"John drinks a bottle of water every half hour. A normal sudoku puzzle
+takes him 45 minutes. An extreme sudoku takes 4 times that long. How
+many bottles of water does he drink in that time?","John drinks a bottle of water every half hour. $\mathsf{A}$ normal sudoku puzzle
+takes him 45 minutes. An extreme sudoku takes $4$ times that long. How
+many bottles of water does he drink in that time?",295.5,308.2,7,0.9586,
+gsm-1002_screen,gsm-1002,18,screen,dev,photos/gsm-1002_screen.jpg,,,,,,pix2text,1.1.7,"Lisa and Peter are selling chocolate bars door to door. Lisa sold three
+and a half boxes of chocolate bars, and Peter sold four and a half
+boxes. They sold 64 chocolate bars together. How many chocolate bars
+are in a box?","Lisa and Peter are selling chocolate bars door to door. Lisa sold three
+and a half boxes of chocolate bars, and Peter sold four and a half
+boxes. They sold 64 chocolate bars together. How many chocolate bars
+are in a box?",185.4,197.6,4,0.9787,
+gsm-1280_screen,gsm-1280,19,screen,dev,photos/gsm-1280_screen.jpg,,,,,,pix2text,1.1.7,"Steve put together a puzzle that took 10 hours of hard work to
+complete. Anna put together the same puzzle in 2 hours more than half
+Steve's time. How long did it take Anna to finish the difficult puzzle?","Steve put together a puzzle that took 10 hours of hard work to
+complete. Anna put together the same puzzle in 2 hours more than half
+Steve's time. How long did it take Anna to finish the difficult puzzle?",249.1,285.1,3,0.986,
+gsm-1203_screen,gsm-1203,20,screen,dev,photos/gsm-1203_screen.jpg,,,,,,pix2text,1.1.7,"Mattison is 60 inches tall. His two-story house is 7 times as high as he
+is. The floor to the ceiling on the first floor is thrice as high as he is. How
+high is the roof from the second floor's floor in inches?","Mattison is 60 inches tall. His two-story house is $\mathrm{7}$ times as high as he
+is. The floor to the ceiling on the first floor is thrice as high as he is. How
+high is the roof from the second floor's floor in inches?",238.3,252.3,5,0.9621,
+math-pre-0496_screen,math-pre-0496,21,screen,dev,photos/math-pre-0496_screen.jpg,,,,,,pix2text,1.1.7,Find1/3 - 2/9.,$$\mathsf{F i n d} ~ \cfrac{1} {3}-\cfrac{2} {9} .$$,253.2,266.7,1,0.986,
+math-alg-0480_screen,math-alg-0480,22,screen,dev,photos/math-alg-0480_screen.jpg,,,,,,pix2text,1.1.7,"the value of (p - 1)(q - 1)? p > 1andq > 1 so that 1/p + 1/q = 1 what is
+Given two real numbers","the value of $( p-1 ) ( q-1 ) ?$ $p > 1 \, \mathrm{a n d} \, q > 1$ so that $\frac{1} {p}+\frac{1} {q}=1$ what is
+Given two real numbers",404.7,416.6,7,0.983,
+math-alg-1185_screen,math-alg-1185,23,screen,dev,photos/math-alg-1185_screen.jpg,,,,,,pix2text,1.1.7,lfx = 1 + x/(1 + x/(1 + x/(1 + ...))) then what is x ?,$$\begin{aligned} {\operatorname{l f} x=1+\frac{x} {1+\frac{x} {1+\frac{x} {1+\cdots}}}} \\ \end{aligned}$$ then what is $x$ ?,390.5,400.4,4,0.9793,
+math-ialg-0647_screen,math-ialg-0647,24,screen,dev,photos/math-ialg-0647_screen.jpg,,,,,,pix2text,1.1.7,"Find a quadratic with real coefficients and quadratic term x^2 that has
+5 - 4i as a root.","Find a quadratic with real coefficients and quadratic term $x^{2}$ that has
+$5-4 i$ as a root.",275.5,292.6,5,0.9798,
+math-pre-0816_screen,math-pre-0816,25,screen,dev,photos/math-pre-0816_screen.jpg,,,,,,pix2text,1.1.7,"If x = 6 , then what is √(x^2) - 3?","If $x=6$ , then what is $\sqrt{x^{2}}-3 ?$",284.0,297.0,4,0.9436,
+math-alg-1000_screen,math-alg-1000,26,screen,dev,photos/math-alg-1000_screen.jpg,,,,,,pix2text,1.1.7,"What is the positive value of the expression √(x^3 - 2^y) when x = 5 and
+y = 2?","What is the positive value of the expression $\sqrt{x^{3}-2^{y}}$ when $x=5$ and
+$y=2 ?$",347.0,363.5,6,0.9952,
+math-ialg-0363_screen,math-ialg-0363,27,screen,dev,photos/math-ialg-0363_screen.jpg,,,,,,pix2text,1.1.7,"Solve the equation
+root3ofx + √(x + 12) = 0
+for x","Solve the equation
+$$\root3 \of{x}+\sqrt{x+1 2}=0$$
+for $x$",309.5,323.3,4,0.9905,
+math-pre-0555_screen,math-pre-0555,28,screen,dev,photos/math-pre-0555_screen.jpg,,,,,,pix2text,1.1.7,How many positive integers are less than 200Tr,How many positive integers are less than 200Tr,152.8,165.7,1,0.9201,
+math-alg-0366_screen,math-alg-0366,29,screen,dev,photos/math-alg-0366_screen.jpg,,,,,,pix2text,1.1.7,"Solve for x, where x > 0and0 = -9x^2 - 3x + 2. Express your
+answer as a simplified common fraction.","Solve for $x ,$ where $x > 0 \mathrm{~ a n d ~} 0=-9 x^{2}-3 x+2 .$ Express your
+answer as a simplified common fraction.",328.2,344.5,6,0.9904,
+math-ialg-0060_screen,math-ialg-0060,30,screen,dev,photos/math-ialg-0060_screen.jpg,,,,,,pix2text,1.1.7,"Let x_1 = 97 and for n 1,define x_n = n/(x_(n - 1)) .Calculate
+x_1x_2...x_8.","Let $x_{1}=9 7$ and for $n$ 1,define $\boldsymbol{x}_{n}=\frac{\boldsymbol{n}} {\boldsymbol{x}_{n-1}}$ .Calculate
+$x_{1} x_{2} \cdots x_{8} .$",508.3,521.8,8,0.9666,
+gsm-0563_synthetic,gsm-0563,1,synthetic,dev,synthetic/gsm-0563_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"James decides to buy birthday candles for his 2 sons.
+One of them is 12 and the other is 4 years younger. A pack
+of 5 candles costs $3. How much does James spend on
+candles?","James decides to buy birthday candles for his 2 sons.
+One of them is 12 and the other is 4 years younger. $\mathsf{A}$ pack
+of 5 candles costs $3. How much does James spend on
+candles?",288.2,294.3,6,0.9734,
+gsm-0988_synthetic,gsm-0988,2,synthetic,dev,synthetic/gsm-0988_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Jessica makes $2,000.00 a month. She sets 25% of her
+paycheck aside to put towards fancy shoes.Each pair of
+shoes she buys costs $1,000.00. How many shoes can
+She buy in a year?","Jessica makes $2,000.00 a month. She sets 25% of her
+paycheck aside to put towards fancy shoes.Each pair of
+shoes she buys costs $1,000.00. How many shoes can
+She buy in a year?",169.8,177.7,4,0.9597,
+gsm-1083_synthetic,gsm-1083,3,synthetic,dev,synthetic/gsm-1083_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"banhfor..nny buy 10 bunches tht erae
+aans erbunch owmuchmoney.inolar he
+Sbybyg he ban nun nst","banhfor..nny buy 10 bunches tht erae
+aans erbunch owmuchmoney.inolar he
+Sbybyg he ban nun nst",184.0,186.2,3,0.6245,
+gsm-0574_synthetic,gsm-0574,4,synthetic,dev,synthetic/gsm-0574_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Afood truck ny ell gilld cheees They source their
+bread for$3.00 a loaf and each loaf makes 10
+Sandwiches. They spend $30.00 on different cheeses and
+condiments per 10 sandwiches. If they ell10 sandwiches
+for$7.00 each, what is their net prfit?","Afood truck ny ell gilld cheees They source their
+bread for$3.00 a loaf and each loaf makes 10
+Sandwiches. They spend $30.00 on different cheeses and
+condiments per 10 sandwiches. If they ell10 sandwiches
+for$7.00 each, what is their net prfit?",181.9,185.8,5,0.8972,
+gsm-0541_synthetic,gsm-0541,5,synthetic,dev,synthetic/gsm-0541_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Elvis has amonthly saving target of $1125.In April, he
+wants to save twice as much daily in the second half as he
+saves in the first half in order to hit his target. How much
+does he have to save for each day in the second half of
+the month?","Elvis has amonthly saving target of $1125.In April, he
+wants to save twice as much daily in the second half as he
+saves in the first half in order to hit his target. How much
+does he have to save for each day in the second half of
+the month?",186.1,190.3,5,0.9479,
+gsm-0669_synthetic,gsm-0669,6,synthetic,dev,synthetic/gsm-0669_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Hwlonfsugaand.5oaablenf
+d amyeblsonfaryingedent woudseana","Hwlonfsugaand.5oaablenf
+d amyeblsonfaryingedent woudseana",169.5,173.4,2,0.5878,
+gsm-1279_synthetic,gsm-1279,7,synthetic,dev,synthetic/gsm-1279_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Avery needs to buy a 3 piece place setting dinner &salad
+plate and a bowl) for her holiday dinner. She's having 12
+people over for dinner. If the dinner plates cost$6.00 each
+and bowls each cost $5.00 and the salad plates cost
+$4.00, how much will she spend on place settings?","Avery needs to buy a 3 piece place setting dinner &salad
+plate and a bowl) for her holiday dinner. She's having 12
+people over for dinner. If the dinner plates cost$6.00 each
+and bowls each cost $5.00 and the salad plates cost
+$4.00, how much will she spend on place settings?",193.0,201.9,5,0.92,
+gsm-0714_synthetic,gsm-0714,8,synthetic,dev,synthetic/gsm-0714_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"James decides to pick some blueberies.It cost $20 to go
+picking and then another$1.5 per pound. He picked 30
+pounds of blueberries. How much did he save compared
+to buying at the store for $2.5 a pound?","James decides to pick some blueberies.It cost $20 to go
+picking and then another$1.5 per pound. He picked 30
+pounds of blueberries. How much did he save compared
+to buying at the store for $2.5 a pound?",183.8,189.0,4,0.942,
+gsm-0512_synthetic,gsm-0512,9,synthetic,dev,synthetic/gsm-0512_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Hannah needs to drink 60 ml of water for each kilometer
+she runs. If her gym teacher tells her to run 8 laps and
+each lap is 0.25 kmhow many milliliters of water will
+Hannah need to drink?","Hannah needs to drink 60 ml of water for each kilometer
+she runs. If her gym teacher tells her to run 8 laps and
+each lap is 0.25 kmhow many milliliters of water will
+Hannah need to drink?",177.2,182.1,4,0.9345,
+gsm-0426_synthetic,gsm-0426,10,synthetic,dev,synthetic/gsm-0426_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Aleksandra went to a restaurant for dinner. She ordered
+some soup, a bagel, and a piece of cake. The bagel cost
+$4, and the soup 25% more. The cake is only half of the
+price of the bagel. How much did Aleksandra need to pay
+for the dinner she ordered?","Aleksandra went to a restaurant for dinner. She ordered
+some soup, a bagel, and a piece of cake. The bagel cost
+$4, and the soup 25% more. The cake is only half of the
+price of the bagel. How much did Aleksandra need to pay
+for the dinner she ordered?",183.8,188.6,5,0.9697,
+gsm-0093_synthetic,gsm-0093,11,synthetic,dev,synthetic/gsm-0093_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Lee used to be able to run the 400-meter hurdles two
+seconds faster than Gerald would run the 400-meter
+hurdles. But Gerald changed his diet, which improved his
+speed by 10%. If Lee runs the 400-meter hurdles in 38
+seconds, how fast can Gerald, with his improved diet, run
+the 400-meter hurdles, in seconds?","Lee used to be able to run the 400-meter hurdles two
+seconds faster than Gerald would run the 400-meter
+hurdles. But Gerald changed his diet, which improved his
+speed by 10%. If Lee runs the 400-meter hurdles in 38
+seconds, how fast can Gerald, with his improved diet, run
+the 400-meter hurdles, in seconds?",188.5,192.9,6,0.9722,
+gsm-1213_synthetic,gsm-1213,12,synthetic,dev,synthetic/gsm-1213_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Stephen borrowed $300 from his sister and promised to
+return it with an aditional 2% of the money he owed. For
+11 months Stephen will give his sister $25 per month and
+the remaining amount, including the interest, will be paid
+on the twelfth month. How much will Stephen pay in the
+twelfth month?","Stephen borrowed $300 from his sister and promised to
+return it with an aditional 2% of the money he owed. For
+11 months Stephen will give his sister $25 per month and
+the remaining amount, including the interest, will be paid
+on the twelfth month. How much will Stephen pay in the
+twelfth month?",203.5,206.9,6,0.9491,
+gsm-0413_synthetic,gsm-0413,13,synthetic,dev,synthetic/gsm-0413_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Marcy makes homemade candles that she markets as
+99% guaranteed not to explode. 5% of the more
+dangerous candles also have a defect that makes them
+smell like wet dog. If she makes 50000 candles, how
+many of them will both smell ike wet dog and explode?","Marcy makes homemade candles that she markets as
+99% guaranteed not to explode. 5% of the more
+dangerous candles also have a defect that makes them
+smell like wet dog. If she makes 50000 candles, how
+many of them will both smell ike wet dog and explode?",194.1,199.7,5,0.978,
+gsm-0080_synthetic,gsm-0080,14,synthetic,dev,synthetic/gsm-0080_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Two girs each got 1/6 f te 2 liter of water.Then a boy
+Got itersof water.How many itersof water werelet?","Two girs each got 1/6 f te 2 liter of water.Then a boy
+Got itersof water.How many itersof water werelet?",155.2,160.5,2,0.7979,
+gsm-0631_synthetic,gsm-0631,15,synthetic,dev,synthetic/gsm-0631_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"In a jewelers store, the price of a gold Jewell is 4/5 times
+as much as the price of a diamond Jewell. The cost of a
+silver Jewell is $400 less than the price of gold. If a
+diamond Jewell is $2000,find the total price for all three
+jewels.","In a jewelers store, the price of a gold Jewell is 4/5 times
+as much as the price of a diamond Jewell. The cost of a
+silver Jewell is $400 less than the price of gold. If a
+diamond Jewell is $2000,find the total price for all three
+jewels.",201.4,205.7,5,0.944,
+gsm-1159_synthetic,gsm-1159,16,synthetic,dev,synthetic/gsm-1159_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Carla just gave birth to identical octuplets. She dresses
+3/4 of them in purple and 1/4 in blue. If all the blue-
+wearers and 1/3 of the purple wearers also wear bows,
+what is the percentage chance a baby wearing a bow is
+wearing purple?","Carla just gave birth to identical octuplets. She dresses
+3/4 of them in purple and 1/4 in blue. If all the blue-
+wearers and 1/3 of the purple wearers also wear bows,
+what is the percentage chance a baby wearing a bow is
+wearing purple?",175.3,178.5,5,0.9461,
+gsm-0912_synthetic,gsm-0912,17,synthetic,dev,synthetic/gsm-0912_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"John drinks a bottle of water every half hour. A normal
+sudoku puzzle takes him 45 minutes. An extreme sudoku
+takes 4 times that long. How many bottles of water does
+he drink in that time?","John drinks a bottle of water every half hour. A normal
+sudoku puzzle takes him 45 minutes. An extreme sudoku
+takes 4 times that long. How many bottles of water does
+he drink in that time?",173.8,181.3,4,0.9646,
+gsm-1002_synthetic,gsm-1002,18,synthetic,dev,synthetic/gsm-1002_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Liand Pete are elingchcolatebr o todoo.
+Lis e andaboeof chce
+ar fr nd hlf behyld 4c
+bar tgeter Howmny chcatebr are abx?","Liand Pete are elingchcolatebr o todoo.
+Lis e andaboeof chce
+ar fr nd hlf behyld 4c
+bar tgeter Howmny chcatebr are abx?",179.2,181.3,4,0.6314,
+gsm-1280_synthetic,gsm-1280,19,synthetic,dev,synthetic/gsm-1280_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Steve put together a puzle that took 10 hours of harcd
+work to complete. Anna put together the same puzzle in 2
+hours more than half Steve's time. How long did it take
+Anna to finish the difficult puzzle?","Steve put together a puzle that took 10 hours of harcd
+work to complete. Anna put together the same puzzle in 2
+hours more than half Steve's time. How long did it take
+Anna to finish the difficult puzzle?",157.7,165.8,4,0.9462,
+gsm-1203_synthetic,gsm-1203,20,synthetic,dev,synthetic/gsm-1203_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Manisoni o nce a  twostn hui time
+e iefr thecnge i
+thheisHow hghisrme
+Second flor's fo i inches?","Manisoni o nce a  twostn hui time
+e iefr thecnge i
+thheisHow hghisrme
+Second flor's fo i inches?",160.4,166.4,4,0.6218,
+math-pre-0496_synthetic,math-pre-0496,21,synthetic,dev,synthetic/math-pre-0496_synthetic.jpg,render,render,render,,,pix2text,1.1.7,Find1/3 - 2/9.,"$${\sf F i n d} \, \frac{1} {3}-\frac{2} {9} .$$",245.0,249.6,1,0.9544,
+math-alg-0480_synthetic,math-alg-0480,22,synthetic,dev,synthetic/math-alg-0480_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"1/q = 1, Given two real numbers p > 1 and q > 1 1/p +
+so that
+what i te value of (p - 1)(q - 1)?","$\frac{1} {q}=1 ,$ Given two real numbers $p > 1$ and $q > 1$ $\frac{1} {p}$ +
+so that
+what i te value of $( p-1 ) ( q-1 ) ?$",491.6,496.0,10,0.9234,
+math-alg-1185_synthetic,math-alg-1185,23,synthetic,dev,synthetic/math-alg-1185_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Ifx = 1 + x/(1 + x/(1 + x/(1 + ...))) , then what is x?","$\mathsf{I f} \, x=1+\cfrac{x} {1+\cfrac{x} {1+\cfrac{x} {1+\cdots}}}$ , then what is $x ?$",361.1,364.1,3,0.9853,
+math-ialg-0647_synthetic,math-ialg-0647,24,synthetic,dev,synthetic/math-ialg-0647_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Find a quadratic with real coefficients and quadratic term
+x^2 that has 5 - 4i as a root.","Find a quadratic with real coefficients and quadratic term
+$x^{2}$ that has $5-4 i$ as a root.",290.7,295.0,5,0.9848,
+math-pre-0816_synthetic,math-pre-0816,25,synthetic,dev,synthetic/math-pre-0816_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"If x = 6, then what is √(x^2) - 3?","If $x=6 ,$ then what is $\sqrt{x^{2}}-3 ?$",287.6,293.4,4,0.9373,
+math-alg-1000_synthetic,math-alg-1000,26,synthetic,dev,synthetic/math-alg-1000_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"when x = 5 cen
+√(x^3 - 2^y)
+y = 2?","when $x=5$ cen
+$\sqrt{x^{3}-2^{y}}$
+$y=2 ?$",357.9,360.3,5,0.8277,
+math-ialg-0363_synthetic,math-ialg-0363,27,synthetic,dev,synthetic/math-ialg-0363_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Solve the equation
+root3ofx + √(x + 12) = 0
+for x.","Solve the equation
+$${\root3 \of{x}}+{\sqrt{x+1 2}}=0$$
+for x.",256.2,260.7,3,0.9702,
+math-pre-0555_synthetic,math-pre-0555,28,synthetic,dev,synthetic/math-pre-0555_synthetic.jpg,render,render,render,,,pix2text,1.1.7,How many positive integers are less than 200r?,How many positive integers are less than 200r?,153.5,156.7,1,0.9684,
+math-alg-0366_synthetic,math-alg-0366,29,synthetic,dev,synthetic/math-alg-0366_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Solve for x, where x > 0 and 0 = -9x^2 - 3x + 2.
+Express your answer as a simplifed common fraction.","Solve for $x ,$ where $x > 0$ and $0=-9 x^{2}-3 x+2 .$
+Express your answer as a simplifed common fraction.",356.1,360.1,7,0.9718,
+math-ialg-0060_synthetic,math-ialg-0060,30,synthetic,dev,synthetic/math-ialg-0060_synthetic.jpg,render,render,render,,,pix2text,1.1.7,"Let x_1 = 97, and for n > 1, define x_n = n/(x_(n - 1)).
+Calculate x_1x_2...x_8.","Let $x_{1}=9 7 ,$ and for $n > 1 ,$ define $x_{n}={\frac{n} {x_{n-1}}} .$
+Calculate $x_{1} x_{2} \cdots x_{8} .$",478.4,483.1,8,0.9904,
